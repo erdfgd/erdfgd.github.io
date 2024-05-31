@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/about/avatar-icon.jpeg">
+  <link rel="icon" href="/images/about/avatar-icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tan ChuYang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在当今快速发展的信息技术时代，中间件技术在企业信息化建设中扮演着至关重要的角色。自20世纪80年代以来，随着企业业务需求的不断变化，企业可能需要同时运行多个不同的业务系统，这些系统可能基于不同的操作系统、数据库和异构网络环境。中间件的出现，正是为了解决这些信息系统如何协同工作的问题，实现企业跨平台、分布式应用的目标。 中间件的定义与作用中间件（Middleware）是一种位于操作系统和应用程序之间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中间件项目大课-自动化云测平台&#x2F;Spingboot3.X&#x2F;微服务&#x2F;Kafka3.x">
+<meta property="og:url" content="http://example.com/2024/05/27/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%A1%B9%E7%9B%AE%E5%A4%A7%E8%AF%BE-%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BA%91%E6%B5%8B%E5%B9%B3%E5%8F%B0-Spingboot3-X-%E5%BE%AE%E6%9C%8D%E5%8A%A1-Kafka3-x/index.html">
+<meta property="og:site_name" content="羊小羊的博客">
+<meta property="og:description" content="在当今快速发展的信息技术时代，中间件技术在企业信息化建设中扮演着至关重要的角色。自20世纪80年代以来，随着企业业务需求的不断变化，企业可能需要同时运行多个不同的业务系统，这些系统可能基于不同的操作系统、数据库和异构网络环境。中间件的出现，正是为了解决这些信息系统如何协同工作的问题，实现企业跨平台、分布式应用的目标。 中间件的定义与作用中间件（Middleware）是一种位于操作系统和应用程序之间">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-27T11:22:04.000Z">
+<meta property="article:modified_time" content="2024-05-27T11:55:02.587Z">
+<meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>中间件项目大课-自动化云测平台/Spingboot3.X/微服务/Kafka3.x - 羊小羊的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>羊小羊的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于羊小羊</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background-images/orange.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="中间件项目大课-自动化云测平台/Spingboot3.X/微服务/Kafka3.x"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-27 19:22" pubdate>
+          2024年5月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">中间件项目大课-自动化云测平台/Spingboot3.X/微服务/Kafka3.x</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年5月27日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在当今快速发展的信息技术时代，中间件技术在企业信息化建设中扮演着至关重要的角色。自20世纪80年代以来，随着企业业务需求的不断变化，企业可能需要同时运行多个不同的业务系统，这些系统可能基于不同的操作系统、数据库和异构网络环境。中间件的出现，正是为了解决这些信息系统如何协同工作的问题，实现企业跨平台、分布式应用的目标。</p>
+<h3 id="中间件的定义与作用"><a href="#中间件的定义与作用" class="headerlink" title="中间件的定义与作用"></a>中间件的定义与作用</h3><p>中间件（Middleware）是一种位于操作系统和应用程序之间的软件，有时也被认为是操作系统的一部分。它通过一组集成的中间件构成一个平台，包括开发平台和运行平台。中间件的核心功能是通信，它使得分布式系统中的各个部分能够相互通信。中间件的使用简化了企业应用的复杂性，使得开发人员能够面对一个简单而统一的开发环境，专注于业务逻辑的实现，而不必为程序在不同系统软件上的移植而烦恼。</p>
+<h3 id="中间件的特点"><a href="#中间件的特点" class="headerlink" title="中间件的特点"></a>中间件的特点</h3><p>中间件应具备以下特点：</p>
+<ol>
+<li><strong>满足大量应用的需要</strong>：中间件需要能够支持广泛的应用场景。</li>
+<li><strong>运行于多种硬件和操作系统平台</strong>：中间件应具有跨平台的特性。</li>
+<li><strong>支持分布计算</strong>：提供跨网络、硬件和操作系统平台的透明性应用或服务的交互。</li>
+<li><strong>支持标准的协议和接口</strong>：这是中间件可移植性和互操作性的关键。</li>
+</ol>
+<p>中间件的这些特点使其成为许多标准化工作的主要部分，对于应用软件开发来说，中间件的重要性甚至超过了操作系统和网络服务。中间件提供的程序接口定义了一个相对稳定的高层应用环境，保护了企业在应用软件开发和维护中的投资。</p>
+<h3 id="消息中间件——Kafka机制"><a href="#消息中间件——Kafka机制" class="headerlink" title="消息中间件——Kafka机制"></a>消息中间件——Kafka机制</h3><p><strong>储存模型</strong></p>
+<p>Kafka节点上，一个Partition的每个副本对应一个磁盘目录，新的日志，都是直接append到文件末尾，所以不管文件多大，写入总是O(1)的时间复杂度。但如果文件很大，顺序查找的效率也会很低。kafka通过两种方式解决：分段、索引。</p>
+<p><strong>分段</strong></p>
+<p>比如有100条 Message，它们的offset是从0到99。假设将数据文件分成5段，第一段为0-19，第二段为20-39，以此类推，每段放在一个单独的数据文 件里面，数据文件以该段中最小的offset命名。这样在查找指定offset的Message的时候，用二分查找就可以定位到该Message在哪个段 中。</p>
+<p><strong>索引</strong></p>
+<p>数据文件分段使得可以在一个较小的数据文件中查找对应offset的 Message了，但是这依然需要顺序扫描才能找到对应offset的Message。为了进一步提高查找的效率，Kafka为每个分段后的数据文件建立 了索引文件，文件名与数据文件的名字是一样的，只是文件扩展名为.index。</p>
+<p>索引文件中包含若干个索引条目，每个条目表示数据文件中一条Message的索引。索引包含两个部分（均为4个字节的数字），分别为相对offset和position。</p>
+<p>注: index文件中并没有为数据文件中的每条Message建立索引，而是采用了 稀疏存储 的方式，每隔一定字节的数据建立一条索引。这样避免了索引文件占用过多的空间，从而可以将索引文件保留在内存中。但缺点是没有建立索引的 Message也不能一次定位到其在数据文件的位置，从而需要做一次顺序扫描，但是这次顺序扫描的范围就很小了。</p>
+<p><strong>高性能</strong></p>
+<p>顺序读写</p>
+<p>kafka采用的磁盘的顺序读写比无序快了太多，这是由操作系统决定的，即使是普通的机械磁盘，顺序访问速率也接近了内存的随机访问速率。</p>
+<p>即使是顺序读写，过于频繁的大量小IO操作一样会造成磁盘的瓶颈，此时又变成了随机读写。Kafka的策略是把消息集合在一起，批量发送，尽可能减少对磁盘的访问。所以，Kafka的Topic和Partition数量不宜过多，超过64个Topic&#x2F;Partition以后，Kafka性能会急剧下降。</p>
+<p><strong>零拷贝</strong></p>
+<p>Kafka中存在大量的网络数据持久化到磁盘（Producer到Broker）和磁盘文件通过网络发送（Broker到Consumer）的过程。这一过程的性能直接影响Kafka的整体吞吐量。</p>
+<p>Linux 2.4+内核通过sendfile系统调用，提供了零拷贝。数据通过DMA拷贝到内核态Buffer后，直接通过DMA拷贝到NIC Buffer，无需CPU拷贝。这也是零拷贝这一说法的来源。除了减少数据拷贝外，因为整个读文件-网络发送由一个sendfile调用完成，整个过程只有两次上下文切换，因此大大提高了性能。</p>
+<p>Kafka的数据传输通过TransportLayer来完成，其子类PlaintextTransportLayer通过Java NIO的FileChannel的transferTo和transferFrom方法实现零拷贝。</p>
+<p><strong>页缓存</strong></p>
+<p>Kafka并不太依赖JVM内存大小，而是主要利用Page Cache，如果使用应用层缓存（JVM堆内存），会增加GC负担，增加停顿时间和延迟，创建对象的开销也会比较高。</p>
+<p>读取操作可以直接在Page Cache上进行，如果消费和生产速度相当，甚至不需要通过物理磁盘直接交换数据，这是Kafka高吞吐量的一个重要原因。</p>
+<p>这么做还有一个优势，如果Kafka重启，JVM内的Cache会失效，Page Cache依然可用。</p>
+<p>代码机制</p>
+<p>kafka-producer.xml</p>
+<pre><code class="hljs">&lt;!--基本配置 --&gt;
+&lt;bean id=&quot;producerProperties&quot; class=&quot;java.util.HashMap&quot;&gt;
+    &lt;constructor-arg&gt;
+        &lt;map&gt;
+            &lt;!-- kafka服务地址，可能是集群--&gt;
+            &lt;entry key=&quot;bootstrap.servers&quot; value=&quot;192.168.62.212:9092,192.168.62.213:9092,192.168.62.214:9092&quot;/&gt;
+            &lt;!-- 有可能导致broker接收到重复的消息,默认值为3--&gt;
+            &lt;entry key=&quot;retries&quot; value=&quot;10&quot;/&gt;
+            &lt;!-- 每次批量发送消息的数量--&gt;
+            &lt;entry key=&quot;batch.size&quot; value=&quot;1638&quot;/&gt;
+            &lt;!-- 默认0ms，在异步IO线程被触发后（任何一个topic，partition满都可以触发）--&gt;
+            &lt;entry key=&quot;linger.ms&quot; value=&quot;1&quot;/&gt;
+            &lt;!--producer可以用来缓存数据的内存大小。如果数据产生速度大于向broker发送的速度，producer会阻塞或者抛出异常 --&gt;
+            &lt;entry key=&quot;buffer.memory&quot; value=&quot;33554432 &quot;/&gt;
+            &lt;!-- producer需要server接收到数据之后发出的确认接收的信号，此项配置就是指procuder需要多少个这样的确认信号--&gt;
+            &lt;entry key=&quot;acks&quot; value=&quot;all&quot;/&gt;
+            &lt;entry key=&quot;key.serializer&quot; value=&quot;org.apache.kafka.common.serialization.StringSerializer&quot;/&gt;
+            &lt;entry key=&quot;value.serializer&quot; value=&quot;org.apache.kafka.common.serialization.StringSerializer&quot;/&gt;
+        &lt;/map&gt;
+    &lt;/constructor-arg&gt;
+&lt;/bean&gt;
+&lt;!-- 创建kafkatemplate需要使用的producerfactory bean --&gt;
+&lt;bean id=&quot;producerFactory&quot;
+      class=&quot;org.springframework.kafka.core.DefaultKafkaProducerFactory&quot;&gt;
+    &lt;constructor-arg&gt;
+        &lt;ref bean=&quot;producerProperties&quot;/&gt;
+    &lt;/constructor-arg&gt;
+&lt;/bean&gt;
+&lt;!-- 创建kafkatemplate bean，使用的时候，只需要注入这个bean，即可使用template的send消息方法 --&gt;
+&lt;bean id=&quot;KafkaTemplate&quot; class=&quot;org.springframework.kafka.core.KafkaTemplate&quot;&gt;
+    &lt;constructor-arg ref=&quot;producerFactory&quot;/&gt;
+    &lt;!--设置对应topic--&gt;
+    &lt;property name=&quot;defaultTopic&quot; value=&quot;bert&quot;/&gt;
+&lt;/bean&gt;
+// 测试类
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = &quot;classpath:kafka-producer.xml&quot;)
+public class KafkaTemplateTest &#123;
+    @Autowired
+    private KafkaTemplate&lt;Integer, String&gt; kafkaTemplate;
+    @Test
+    public void hello()&#123;
+        kafkaTemplate.sendDefault(&quot;hello world&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>kafka-consumer.xml</p>
+<pre><code class="hljs">&lt;bean id=&quot;consumerProperties&quot; class=&quot;java.util.HashMap&quot;&gt;
+        &lt;constructor-arg&gt;
+            &lt;map&gt;
+                &lt;!--Kafka服务地址 --&gt;
+                &lt;entry key=&quot;bootstrap.servers&quot; value=&quot;192.168.62.212:9092,192.168.62.213:9092,192.168.62.214:9092&quot; /&gt;
+                &lt;!--Consumer的组ID，相同goup.id的consumer属于同一个组。 --&gt;
+                &lt;entry key=&quot;group.id&quot; value=&quot;bert.mac&quot; /&gt;
+                &lt;!--如果此值设置为true，consumer会周期性的把当前消费的offset值保存到zookeeper。当consumer失败重启之后将会使用此值作为新开始消费的值。 --&gt;
+                &lt;entry key=&quot;enable.auto.commit&quot; value=&quot;true&quot; /&gt;
+                &lt;!--网络请求的socket超时时间。实际超时时间由max.fetch.wait + socket.timeout.ms 确定 --&gt;
+                &lt;entry key=&quot;session.timeout.ms&quot; value=&quot;15000 &quot; /&gt;
+                &lt;entry key=&quot;key.deserializer&quot;
+                    value=&quot;org.apache.kafka.common.serialization.StringDeserializer&quot; /&gt;
+                &lt;entry key=&quot;value.deserializer&quot;
+                    value=&quot;org.apache.kafka.common.serialization.StringDeserializer&quot; /&gt;
+            &lt;/map&gt;
+        &lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+    &lt;!--指定具体监听类的bean --&gt;
+    &lt;bean id=&quot;messageListernerConsumerService&quot; class=&quot;com.ximalaya.queue.KafkaConsumerListener&quot; /&gt;
+    &lt;!-- 创建consumerFactory bean --&gt;
+    &lt;bean id=&quot;consumerFactory&quot; class=&quot;org.springframework.kafka.core.DefaultKafkaConsumerFactory&quot;&gt;
+        &lt;constructor-arg&gt;
+            &lt;ref bean=&quot;consumerProperties&quot;/&gt;
+        &lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;containerProperties&quot; class=&quot;org.springframework.kafka.listener.config.ContainerProperties&quot;&gt;
+        &lt;!-- 要消费的 topic --&gt;
+        &lt;constructor-arg value=&quot;bert&quot;/&gt;
+        &lt;property name=&quot;messageListener&quot; ref=&quot;messageListernerConsumerService&quot;/&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;messageListenerContainer&quot; class=&quot;org.springframework.kafka.listener.KafkaMessageListenerContainer&quot; init-method=&quot;doStart&quot;&gt;
+        &lt;constructor-arg ref=&quot;consumerFactory&quot;/&gt;
+        &lt;constructor-arg ref=&quot;containerProperties&quot;/&gt;
+    &lt;/bean&gt;
+</code></pre>
+<p>生产者</p>
+<ol>
+<li><p>直接使用KafkaProducer， DefaultKafkaProducerFactory 典型的工厂模式， 封装了kafka producer 配置</p>
+</li>
+<li><p>KafkaTemplate 来了一个 经典的单例模式</p>
+<pre><code class="hljs"> public class KafkaTemplate&lt;K, V&gt; implements KafkaOperations&lt;K, V&gt; &#123;
+     private final ProducerFactory&lt;K, V&gt; producerFactory;
+     // volatile 保证多线程的可见性
+     private volatile Producer&lt;K, V&gt; producer;
+     private Producer&lt;K, V&gt; getTheProducer() &#123;
+         if (this.producer == null) &#123;
+             synchronized (this) &#123;
+                 // 多重检查
+                 if (this.producer == null) &#123;
+                     this.producer = this.producerFactory.createProducer();
+                 &#125;
+             &#125;
+         &#125;
+         return this.producer;
+     &#125;
+ &#125;
+</code></pre>
+</li>
+</ol>
+<p>发送逻辑</p>
+<pre><code class="hljs">public ListenableFuture&lt;SendResult&lt;K, V&gt;&gt; send(String topic, V data) &#123;
+    ProducerRecord&lt;K, V&gt; producerRecord = new ProducerRecord&lt;&gt;(topic, data);
+    return doSend(producerRecord);
+&#125;
+protected ListenableFuture&lt;SendResult&lt;K, V&gt;&gt; doSend(final ProducerRecord&lt;K, V&gt; producerRecord) &#123;
+    getTheProducer();
+    final SettableListenableFuture&lt;SendResult&lt;K, V&gt;&gt; future = new SettableListenableFuture&lt;&gt;();
+    getTheProducer().send(producerRecord, new Callback() &#123;
+        public void onCompletion(RecordMetadata metadata, Exception exception) &#123;
+            if (exception == null) &#123;
+                future.set(new SendResult&lt;&gt;(producerRecord, metadata));
+                if (KafkaTemplate.this.producerListener != null
+                        &amp;&amp; KafkaTemplate.this.producerListener.isInterestedInSuccess()) &#123;
+                    KafkaTemplate.this.producerListener.onSuccess(producerRecord.topic(),
+                            producerRecord.partition(), producerRecord.key(), producerRecord.value(), metadata);
+                &#125;
+            &#125;else &#123;
+                future.setException(new KafkaProducerException(producerRecord, &quot;Failed to send&quot;, exception));
+                if (KafkaTemplate.this.producerListener != null) &#123;
+                    KafkaTemplate.this.producerListener.onError(producerRecord.topic(),
+                            producerRecord.partition(), producerRecord.key(), producerRecord.value(), exception);
+                &#125;
+            &#125;
+        &#125;
+    &#125;);
+    if (this.autoFlush) &#123;
+        flush();
+    &#125;
+    return future;
+&#125;
+</code></pre>
+<ol>
+<li>将KafkaProducer 的send callback 转换为ListenableFuture</li>
+<li>使用 producerListener 将“事件处理”逻辑与发送主流程解耦</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/java/" class="print-no-link">#java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>中间件项目大课-自动化云测平台/Spingboot3.X/微服务/Kafka3.x</div>
+      <div>http://example.com/2024/05/27/中间件项目大课-自动化云测平台-Spingboot3-X-微服务-Kafka3-x/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tan ChuYang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/27/%E6%85%95%E4%BD%93%E7%B3%BBPython%E5%85%A8%E8%83%BD%E5%B7%A5%E7%A8%8B%E5%B8%882024%E4%B9%8B%E6%B7%B1%E5%85%A5%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" title="慕体系Python全能工程师2024之深入底层原理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">慕体系Python全能工程师2024之深入底层原理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/20/15_Java%20%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%20-%20%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA/" title="Java 高级教程系列 - 线程创建">
+                        <span class="hidden-mobile">Java 高级教程系列 - 线程创建</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"B8kWDiFEXDhqgdeaFDgF1J20-MdYXbMMI","appKey":"hgpr0J2gtv8uaHbnszwKJ4g9","path":"window.location.pathname","placeholder":"...","avatar":"retro","meta":["nick"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

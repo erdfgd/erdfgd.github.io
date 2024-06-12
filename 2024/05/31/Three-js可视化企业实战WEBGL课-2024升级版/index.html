@@ -1,0 +1,1302 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/about/avatar-icon.jpeg">
+  <link rel="icon" href="/images/about/avatar-icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tan ChuYang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Three.js 重要组件和模块Three.js 是一个功能强大的 JavaScript 库，用于在 Web 浏览器中创建和显示动画 3D 图形。它的丰富 API 和模块化设计使得开发者可以轻松构建复杂的 3D 场景和动画效果。本文将详细介绍 Three.js 中的一些重要组件和模块，包括场景、相机、几何体、材质、光源、渲染器和控制器等。 1. 场景 (Scene)场景是 Three.js 的核心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Three.js可视化企业实战WEBGL课-2024升级版">
+<meta property="og:url" content="http://example.com/2024/05/31/Three-js%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BC%81%E4%B8%9A%E5%AE%9E%E6%88%98WEBGL%E8%AF%BE-2024%E5%8D%87%E7%BA%A7%E7%89%88/index.html">
+<meta property="og:site_name" content="羊小羊的博客">
+<meta property="og:description" content="Three.js 重要组件和模块Three.js 是一个功能强大的 JavaScript 库，用于在 Web 浏览器中创建和显示动画 3D 图形。它的丰富 API 和模块化设计使得开发者可以轻松构建复杂的 3D 场景和动画效果。本文将详细介绍 Three.js 中的一些重要组件和模块，包括场景、相机、几何体、材质、光源、渲染器和控制器等。 1. 场景 (Scene)场景是 Three.js 的核心">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-31T11:15:18.000Z">
+<meta property="article:modified_time" content="2024-06-06T10:19:47.256Z">
+<meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="three.js">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Three.js可视化企业实战WEBGL课-2024升级版 - 羊小羊的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>羊小羊的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于羊小羊</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background-images/orange.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Three.js可视化企业实战WEBGL课-2024升级版"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-31 19:15" pubdate>
+          2024年5月31日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Three.js可视化企业实战WEBGL课-2024升级版</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年6月6日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Three-js-重要组件和模块"><a href="#Three-js-重要组件和模块" class="headerlink" title="Three.js 重要组件和模块"></a>Three.js 重要组件和模块</h1><p>Three.js 是一个功能强大的 JavaScript 库，用于在 Web 浏览器中创建和显示动画 3D 图形。它的丰富 API 和模块化设计使得开发者可以轻松构建复杂的 3D 场景和动画效果。本文将详细介绍 Three.js 中的一些重要组件和模块，包括场景、相机、几何体、材质、光源、渲染器和控制器等。</p>
+<h2 id="1-场景-Scene"><a href="#1-场景-Scene" class="headerlink" title="1. 场景 (Scene)"></a>1. 场景 (Scene)</h2><p>场景是 Three.js 的核心组件之一，用于容纳和管理 3D 对象、光源和相机。所有的 3D 对象都必须添加到场景中，才能被渲染器绘制。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scene = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Scene</span>();</code></pre></div>
+
+<h2 id="2-相机-Camera"><a href="#2-相机-Camera" class="headerlink" title="2. 相机 (Camera)"></a>2. 相机 (Camera)</h2><p>相机定义了视图的角度和范围。Three.js 提供了多种相机类型，其中最常用的是透视相机 (PerspectiveCamera) 和正交相机 (OrthographicCamera)。</p>
+<h3 id="2-1-透视相机"><a href="#2-1-透视相机" class="headerlink" title="2.1 透视相机"></a>2.1 透视相机</h3><p>透视相机模仿了人眼的视角，适合大多数 3D 场景。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PerspectiveCamera</span>(<span class="hljs-number">75</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+camera.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>);</code></pre></div>
+
+<h3 id="2-2-正交相机"><a href="#2-2-正交相机" class="headerlink" title="2.2 正交相机"></a>2.2 正交相机</h3><p>正交相机不考虑距离缩放，适合二维图表和 UI 元素的渲染。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">OrthographicCamera</span>(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+camera.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>);</code></pre></div>
+
+<h2 id="3-几何体-Geometry"><a href="#3-几何体-Geometry" class="headerlink" title="3. 几何体 (Geometry)"></a>3. 几何体 (Geometry)</h2><p>几何体定义了 3D 对象的形状和结构。Three.js 提供了多种内置几何体，如立方体、球体、平面、圆柱体等。</p>
+<h3 id="3-1-BoxGeometry"><a href="#3-1-BoxGeometry" class="headerlink" title="3.1 BoxGeometry"></a>3.1 BoxGeometry</h3><p>创建一个立方体几何体：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);</code></pre></div>
+
+<h3 id="3-2-SphereGeometry"><a href="#3-2-SphereGeometry" class="headerlink" title="3.2 SphereGeometry"></a>3.2 SphereGeometry</h3><p>创建一个球体几何体：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">SphereGeometry</span>(<span class="hljs-number">1</span>, <span class="hljs-number">32</span>, <span class="hljs-number">32</span>);</code></pre></div>
+
+<h2 id="4-材质-Material"><a href="#4-材质-Material" class="headerlink" title="4. 材质 (Material)"></a>4. 材质 (Material)</h2><p>材质定义了几何体的表面属性，如颜色、光泽、纹理等。常用的材质包括 MeshBasicMaterial、MeshStandardMaterial 和 MeshPhongMaterial。</p>
+<h3 id="4-1-MeshBasicMaterial"><a href="#4-1-MeshBasicMaterial" class="headerlink" title="4.1 MeshBasicMaterial"></a>4.1 MeshBasicMaterial</h3><p>一种不受光照影响的材质：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0xff0000</span> &#125;);</code></pre></div>
+
+<h3 id="4-2-MeshStandardMaterial"><a href="#4-2-MeshStandardMaterial" class="headerlink" title="4.2 MeshStandardMaterial"></a>4.2 MeshStandardMaterial</h3><p>一种支持光照和物理属性的材质：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span>, <span class="hljs-attr">roughness</span>: <span class="hljs-number">0.5</span>, <span class="hljs-attr">metalness</span>: <span class="hljs-number">0.5</span> &#125;);</code></pre></div>
+
+<h2 id="5-光源-Light"><a href="#5-光源-Light" class="headerlink" title="5. 光源 (Light)"></a>5. 光源 (Light)</h2><p>光源用于照亮场景中的几何体，Three.js 提供了多种光源类型，如环境光 (AmbientLight)、点光源 (PointLight)、平行光 (DirectionalLight) 和聚光灯 (SpotLight)。</p>
+<h3 id="5-1-AmbientLight"><a href="#5-1-AmbientLight" class="headerlink" title="5.1 AmbientLight"></a>5.1 AmbientLight</h3><p>环境光为场景提供整体照明：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> light = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AmbientLight</span>(<span class="hljs-number">0x404040</span>);
+scene.<span class="hljs-title function_">add</span>(light);</code></pre></div>
+
+<h3 id="5-2-PointLight"><a href="#5-2-PointLight" class="headerlink" title="5.2 PointLight"></a>5.2 PointLight</h3><p>点光源从一个点向所有方向发射光线：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> light = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PointLight</span>(<span class="hljs-number">0xffffff</span>, <span class="hljs-number">1</span>, <span class="hljs-number">100</span>);
+light.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+scene.<span class="hljs-title function_">add</span>(light);</code></pre></div>
+
+<h2 id="6-渲染器-Renderer"><a href="#6-渲染器-Renderer" class="headerlink" title="6. 渲染器 (Renderer)"></a>6. 渲染器 (Renderer)</h2><p>渲染器负责将场景中的对象绘制到屏幕上。Three.js 提供了 WebGLRenderer，这是最常用的渲染器，支持现代浏览器中的硬件加速。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> renderer = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>();
+renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(renderer.<span class="hljs-property">domElement</span>);</code></pre></div>
+
+<h2 id="7-控制器-Controls"><a href="#7-控制器-Controls" class="headerlink" title="7. 控制器 (Controls)"></a>7. 控制器 (Controls)</h2><p>控制器用于处理用户输入，如鼠标、键盘等，允许用户交互并控制视图。最常用的是 OrbitControls，允许用户旋转、缩放和平移视图。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">OrbitControls</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;
+
+<span class="hljs-keyword">const</span> controls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrbitControls</span>(camera, renderer.<span class="hljs-property">domElement</span>);
+controls.<span class="hljs-property">enableDamping</span> = <span class="hljs-literal">true</span>;</code></pre></div>
+
+<h2 id="8-动画循环-Animation-Loop"><a href="#8-动画循环-Animation-Loop" class="headerlink" title="8. 动画循环 (Animation Loop)"></a>8. 动画循环 (Animation Loop)</h2><p>为了创建动画效果，需要在渲染器中添加一个动画循环，不断更新场景并重新渲染。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+
+    <span class="hljs-comment">// 更新控制器</span>
+    controls.<span class="hljs-title function_">update</span>();
+
+    <span class="hljs-comment">// 渲染场景</span>
+    renderer.<span class="hljs-title function_">render</span>(scene, camera);
+&#125;
+
+<span class="hljs-title function_">animate</span>();</code></pre></div>
+
+<h2 id="9-纹理-Texture"><a href="#9-纹理-Texture" class="headerlink" title="9. 纹理 (Texture)"></a>9. 纹理 (Texture)</h2><p>纹理用于给几何体表面添加图像或图案。Three.js 提供了 TextureLoader 用于加载纹理图像。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> textureLoader = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">TextureLoader</span>();
+<span class="hljs-keyword">const</span> texture = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/texture.jpg&#x27;</span>);
+
+<span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">map</span>: texture &#125;);</code></pre></div>
+
+<h2 id="10-模型加载器-Model-Loader"><a href="#10-模型加载器-Model-Loader" class="headerlink" title="10. 模型加载器 (Model Loader)"></a>10. 模型加载器 (Model Loader)</h2><p>Three.js 支持多种 3D 模型格式，如 GLTF、OBJ 和 FBX，可以使用相应的加载器来加载和显示模型。</p>
+<h3 id="10-1-GLTFLoader"><a href="#10-1-GLTFLoader" class="headerlink" title="10.1 GLTFLoader"></a>10.1 GLTFLoader</h3><p>加载 GLTF 格式的 3D 模型：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">GLTFLoader</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/loaders/GLTFLoader.js&#x27;</span>;
+
+<span class="hljs-keyword">const</span> loader = <span class="hljs-keyword">new</span> <span class="hljs-title class_">GLTFLoader</span>();
+loader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/model.gltf&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">gltf</span>) &#123;
+    scene.<span class="hljs-title function_">add</span>(gltf.<span class="hljs-property">scene</span>);
+&#125;);</code></pre></div>
+
+<h2 id="示例：创建一个完整的-3D-场景"><a href="#示例：创建一个完整的-3D-场景" class="headerlink" title="示例：创建一个完整的 3D 场景"></a>示例：创建一个完整的 3D 场景</h2><p>下面是一个完整的示例，展示了如何使用 Three.js 创建一个简单的 3D 场景，包括相机、几何体、材质、光源、渲染器和控制器。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-variable constant_">THREE</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three&#x27;</span>;
+<span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">OrbitControls</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;
+
+<span class="hljs-keyword">let</span> scene, camera, renderer, controls;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">init</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-comment">// 创建场景</span>
+    scene = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Scene</span>();
+
+    <span class="hljs-comment">// 创建相机</span>
+    camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PerspectiveCamera</span>(<span class="hljs-number">75</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+    camera.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
+
+    <span class="hljs-comment">// 创建渲染器</span>
+    renderer = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>(&#123; <span class="hljs-attr">antialias</span>: <span class="hljs-literal">true</span> &#125;);
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(renderer.<span class="hljs-property">domElement</span>);
+
+    <span class="hljs-comment">// 添加控制器</span>
+    controls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrbitControls</span>(camera, renderer.<span class="hljs-property">domElement</span>);
+    controls.<span class="hljs-property">enableDamping</span> = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-comment">// 添加几何体和材质</span>
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>();
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span> &#125;);
+    <span class="hljs-keyword">const</span> cube = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+    scene.<span class="hljs-title function_">add</span>(cube);
+
+    <span class="hljs-comment">// 添加光源</span>
+    <span class="hljs-keyword">const</span> ambientLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AmbientLight</span>(<span class="hljs-number">0x404040</span>);
+    scene.<span class="hljs-title function_">add</span>(ambientLight);
+
+    <span class="hljs-keyword">const</span> pointLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PointLight</span>(<span class="hljs-number">0xffffff</span>, <span class="hljs-number">1</span>, <span class="hljs-number">100</span>);
+    pointLight.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+    scene.<span class="hljs-title function_">add</span>(pointLight);
+
+    <span class="hljs-comment">// 监听窗口大小变化</span>
+    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, onWindowResize, <span class="hljs-literal">false</span>);
+
+    <span class="hljs-comment">// 开始动画循环</span>
+    <span class="hljs-title function_">animate</span>();
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onWindowResize</span>(<span class="hljs-params"></span>) &#123;
+    camera.<span class="hljs-property">aspect</span> = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>;
+    camera.<span class="hljs-title function_">updateProjectionMatrix</span>();
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+
+    <span class="hljs-comment">// 更新控制器</span>
+    controls.<span class="hljs-title function_">update</span>();
+
+    <span class="hljs-comment">// 渲染场景</span>
+    renderer.<span class="hljs-title function_">render</span>(scene, camera);
+&#125;
+
+<span class="hljs-title function_">init</span>();</code></pre></div>
+
+
+<h1 id="Three-js-可视化实战"><a href="#Three-js-可视化实战" class="headerlink" title="Three.js 可视化实战"></a>Three.js 可视化实战</h1><h2 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1. 环境搭建"></a>1. 环境搭建</h2><h3 id="1-1-安装-Node-js-和-npm"><a href="#1-1-安装-Node-js-和-npm" class="headerlink" title="1.1 安装 Node.js 和 npm"></a>1.1 安装 Node.js 和 npm</h3><p>首先，需要安装 Node.js 和 npm，可以从 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js 官网</a> 下载并安装。</p>
+<h3 id="1-2-创建项目文件夹"><a href="#1-2-创建项目文件夹" class="headerlink" title="1.2 创建项目文件夹"></a>1.2 创建项目文件夹</h3><p>创建一个新的项目文件夹，并在其中初始化一个新的 Node.js 项目：</p>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> threejs-visualization
+<span class="hljs-built_in">cd</span> threejs-visualization
+npm init -y</code></pre></div>
+
+<h3 id="1-3-安装-Three-js"><a href="#1-3-安装-Three-js" class="headerlink" title="1.3 安装 Three.js"></a>1.3 安装 Three.js</h3><p>在项目中安装 Three.js：</p>
+<div class="code-wrapper"><pre><code class="hljs bash">npm install three</code></pre></div>
+
+<h3 id="1-4-创建项目结构"><a href="#1-4-创建项目结构" class="headerlink" title="1.4 创建项目结构"></a>1.4 创建项目结构</h3><p>在项目文件夹中创建以下文件和文件夹结构：</p>
+<div class="code-wrapper"><pre><code class="hljs stylus">threejs-visualization/
+├── index<span class="hljs-selector-class">.html</span>
+├── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span>
+└── styles.css</code></pre></div>
+
+<h2 id="2-编写-HTML-文件"><a href="#2-编写-HTML-文件" class="headerlink" title="2. 编写 HTML 文件"></a>2. 编写 HTML 文件</h2><p>在 <code>index.html</code> 文件中，设置基本的 HTML 结构，并引入 Three.js 和你的 JavaScript 文件：</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Three.js Visualization<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;styles.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./node_modules/three/build/three.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+
+<h2 id="3-编写-CSS-文件"><a href="#3-编写-CSS-文件" class="headerlink" title="3. 编写 CSS 文件"></a>3. 编写 CSS 文件</h2><p>在 <code>styles.css</code> 文件中，设置基本的样式：</p>
+<div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">overflow</span>: hidden;
+&#125;
+
+<span class="hljs-selector-id">#container</span> &#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100vw</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100vh</span>;
+&#125;</code></pre></div>
+
+<h2 id="4-编写-JavaScript-文件"><a href="#4-编写-JavaScript-文件" class="headerlink" title="4. 编写 JavaScript 文件"></a>4. 编写 JavaScript 文件</h2><p>在 <code>main.js</code> 文件中，编写 Three.js 的基本代码，创建一个 3D 场景、相机和渲染器。</p>
+<h3 id="4-1-初始化场景和相机"><a href="#4-1-初始化场景和相机" class="headerlink" title="4.1 初始化场景和相机"></a>4.1 初始化场景和相机</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-variable constant_">THREE</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three&#x27;</span>;
+
+<span class="hljs-keyword">let</span> scene, camera, renderer;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">init</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-comment">// 创建场景</span>
+    scene = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Scene</span>();
+
+    <span class="hljs-comment">// 创建相机</span>
+    camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PerspectiveCamera</span>(<span class="hljs-number">75</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+    camera.<span class="hljs-property">position</span>.<span class="hljs-property">z</span> = <span class="hljs-number">5</span>;
+
+    <span class="hljs-comment">// 创建渲染器</span>
+    renderer = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>();
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;container&#x27;</span>).<span class="hljs-title function_">appendChild</span>(renderer.<span class="hljs-property">domElement</span>);
+&#125;
+
+<span class="hljs-title function_">init</span>();</code></pre></div>
+
+<h3 id="4-2-创建几何体和材质"><a href="#4-2-创建几何体和材质" class="headerlink" title="4.2 创建几何体和材质"></a>4.2 创建几何体和材质</h3><p>在 <code>init</code> 函数中添加一个几何体对象，例如立方体：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addCube</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>();
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span> &#125;);
+    <span class="hljs-keyword">const</span> cube = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+    scene.<span class="hljs-title function_">add</span>(cube);
+    <span class="hljs-keyword">return</span> cube;
+&#125;
+
+<span class="hljs-keyword">let</span> cube = <span class="hljs-title function_">addCube</span>();</code></pre></div>
+
+<h3 id="4-3-添加光源"><a href="#4-3-添加光源" class="headerlink" title="4.3 添加光源"></a>4.3 添加光源</h3><p>为场景添加光源，使得几何体有更好的视觉效果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addLight</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> light = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PointLight</span>(<span class="hljs-number">0xffffff</span>, <span class="hljs-number">1</span>);
+    light.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+    scene.<span class="hljs-title function_">add</span>(light);
+&#125;
+
+<span class="hljs-title function_">addLight</span>();</code></pre></div>
+
+<h3 id="4-4-动画循环"><a href="#4-4-动画循环" class="headerlink" title="4.4 动画循环"></a>4.4 动画循环</h3><p>添加一个动画循环来渲染场景：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+
+    <span class="hljs-comment">// 旋转立方体</span>
+    cube.<span class="hljs-property">rotation</span>.<span class="hljs-property">x</span> += <span class="hljs-number">0.01</span>;
+    cube.<span class="hljs-property">rotation</span>.<span class="hljs-property">y</span> += <span class="hljs-number">0.01</span>;
+
+    renderer.<span class="hljs-title function_">render</span>(scene, camera);
+&#125;
+
+<span class="hljs-title function_">animate</span>();</code></pre></div>
+
+<h3 id="4-5-添加坐标轴和数据点"><a href="#4-5-添加坐标轴和数据点" class="headerlink" title="4.5 添加坐标轴和数据点"></a>4.5 添加坐标轴和数据点</h3><p>为了创建一个3D图表，需要添加坐标轴和一些数据点。以下是如何实现的：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">createAxis</span>(<span class="hljs-params">size</span>) &#123;
+    <span class="hljs-keyword">const</span> axesHelper = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AxesHelper</span>(size);
+    scene.<span class="hljs-title function_">add</span>(axesHelper);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createDataPoints</span>(<span class="hljs-params">data</span>) &#123;
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">SphereGeometry</span>(<span class="hljs-number">0.1</span>, <span class="hljs-number">32</span>, <span class="hljs-number">32</span>);
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0xff0000</span> &#125;);
+    data.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">point</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">const</span> sphere = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+        sphere.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(point.<span class="hljs-property">x</span>, point.<span class="hljs-property">y</span>, point.<span class="hljs-property">z</span>);
+        scene.<span class="hljs-title function_">add</span>(sphere);
+    &#125;);
+&#125;
+
+<span class="hljs-keyword">const</span> data = [
+    &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span> &#125;,
+    &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">1</span> &#125;,
+    &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">2</span> &#125;,
+];
+
+<span class="hljs-title function_">createAxis</span>(<span class="hljs-number">5</span>);
+<span class="hljs-title function_">createDataPoints</span>(data);</code></pre></div>
+
+<h2 id="5-完整代码"><a href="#5-完整代码" class="headerlink" title="5. 完整代码"></a>5. 完整代码</h2><p>将以上代码整合到一起，最终的 <code>main.js</code> 文件如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-variable constant_">THREE</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three&#x27;</span>;
+
+<span class="hljs-keyword">let</span> scene, camera, renderer, cube;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">init</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-comment">// 创建场景</span>
+    scene = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Scene</span>();
+
+    <span class="hljs-comment">// 创建相机</span>
+    camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PerspectiveCamera</span>(<span class="hljs-number">75</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+    camera.<span class="hljs-property">position</span>.<span class="hljs-property">z</span> = <span class="hljs-number">5</span>;
+
+    <span class="hljs-comment">// 创建渲染器</span>
+    renderer = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>();
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;container&#x27;</span>).<span class="hljs-title function_">appendChild</span>(renderer.<span class="hljs-property">domElement</span>);
+
+    <span class="hljs-comment">// 添加立方体</span>
+    cube = <span class="hljs-title function_">addCube</span>();
+
+    <span class="hljs-comment">// 添加光源</span>
+    <span class="hljs-title function_">addLight</span>();
+
+    <span class="hljs-comment">// 添加坐标轴</span>
+    <span class="hljs-title function_">createAxis</span>(<span class="hljs-number">5</span>);
+
+    <span class="hljs-comment">// 添加数据点</span>
+    <span class="hljs-keyword">const</span> data = [
+        &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span> &#125;,
+        &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">1</span> &#125;,
+        &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">2</span> &#125;,
+    ];
+    <span class="hljs-title function_">createDataPoints</span>(data);
+
+    <span class="hljs-comment">// 开始动画</span>
+    <span class="hljs-title function_">animate</span>();
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addCube</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>();
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span> &#125;);
+    <span class="hljs-keyword">const</span> cube = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+    scene.<span class="hljs-title function_">add</span>(cube);
+    <span class="hljs-keyword">return</span> cube;
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addLight</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> light = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PointLight</span>(<span class="hljs-number">0xffffff</span>, <span class="hljs-number">1</span>);
+    light.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+    scene.<span class="hljs-title function_">add</span>(light);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createAxis</span>(<span class="hljs-params">size</span>) &#123;
+    <span class="hljs-keyword">const</span> axesHelper = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AxesHelper</span>(size);
+    scene.<span class="hljs-title function_">add</span>(axesHelper);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createDataPoints</span>(<span class="hljs-params">data</span>) &#123;
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">SphereGeometry</span>(<span class="hljs-number">0.1</span>, <span class="hljs-number">32</span>, <span class="hljs-number">32</span>);
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0xff0000</span> &#125;);
+    data.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">point</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">const</span> sphere = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+        sphere.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(point.<span class="hljs-property">x</span>, point.<span class="hljs-property">y</span>, point.<span class="hljs-property">z</span>);
+        scene.<span class="hljs-title function_">add</span>(sphere);
+    &#125;);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+
+    <span class="hljs-comment">// 旋转立方体</span>
+    cube.<span class="hljs-property">rotation</span>.<span class="hljs-property">x</span> += <span class="hljs-number">0.01</span>;
+    cube.<span class="hljs-property">rotation</span>.<span class="hljs-property">y</span> += <span class="hljs-number">0.01</span>;
+
+    renderer.<span class="hljs-title function_">render</span>(scene, camera);
+&#125;
+
+<span class="hljs-title function_">init</span>();</code></pre></div>
+
+<h2 id="6-运行项目"><a href="#6-运行项目" class="headerlink" title="6. 运行项目"></a>6. 运行项目</h2><p>打开命令行，进入项目文件夹，然后运行一个简单的 HTTP 服务器：</p>
+<div class="code-wrapper"><pre><code class="hljs bash">npx http-server</code></pre></div>
+
+<p>在浏览器中访问 <code>http://localhost:8080</code>，你将看到一个3D图表，其中包含一个旋转的立方体、坐标轴和数据点。</p>
+<h2 id="7-高级应用"><a href="#7-高级应用" class="headerlink" title="7. 高级应用"></a>7. 高级应用</h2><p>通过以上基础知识，你已经学会了如何使用 Three.js 创建一个简单的 3D 图表。接下来，我们将探讨一些高级功能和应用。</p>
+<h3 id="7-1-使用-OrbitControls-实现交互"><a href="#7-1-使用-OrbitControls-实现交互" class="headerlink" title="7.1 使用 OrbitControls 实现交互"></a>7.1 使用 OrbitControls 实现交互</h3><p>Three.js 提供了 <code>OrbitControls</code> 类，使用户可以通过鼠标操作来旋转、缩放和移动视图。以下是如何集成 <code>OrbitControls</code> 的示例：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">OrbitControls</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">init</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-comment">// ...之前的代码...</span>
+
+    <span class="hljs-comment">// 添加交互控件</span>
+    <span class="hljs-keyword">const</span> controls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrbitControls</span>(camera, renderer.<span class="hljs-property">domElement</span>);
+    controls.<span class="hljs-property">enableDamping</span> = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-comment">// 更新动画循环中的控件</span>
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+
+        <span class="hljs-comment">// 更新控件</span>
+        controls.<span class="hljs-title function_">update</span>();
+
+        <span class="hljs-comment">// 旋转立方体</span>
+        cube.<span class="hljs-property">rotation</span>.<span class="hljs-property">x</span> += <span class="hljs-number">0.01</span>;
+        cube.<span class="hljs-property">rotation</span>.<span class="hljs-property">y</span> += <span class="hljs-number">0.01</span>;
+
+        renderer.<span class="hljs-title function_">render</span>(scene, camera);
+    &#125;
+
+    <span class="hljs-title function_">animate</span>();
+&#125;</code></pre></div>
+
+<h3 id="7-2-高级材质和光照"><a href="#7-2-高级材质和光照" class="headerlink" title="7.2 高级材质和光照"></a>7.2 高级材质和光照</h3><p>Three.js 支持多种高级材质和光照效果，使得 3D 对象可以呈现出更加真实的外观。以下示例展示了如何使用 <code>MeshStandardMaterial</code> 和多种光源：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addCube</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>();
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span>, <span class="hljs-attr">roughness</span>: <span class="hljs-number">0.5</span>, <span class="hljs-attr">metalness</span>: <span class="hljs-number">0.5</span> &#125;);
+    <span class="hljs-keyword">const</span> cube = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+    scene.<span class="hljs-title function_">add</span>(cube);
+    <span class="hljs-keyword">return</span> cube;
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addLight</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> ambientLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AmbientLight</span>(<span class="hljs-number">0x404040</span>);
+    scene.<span class="hljs-title function_">add</span>(ambientLight);
+
+    <span class="hljs-keyword">const</span> spotLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">SpotLight</span>(<span class="hljs-number">0xffffff</span>);
+    spotLight.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+    scene.<span class="hljs-title function_">add</span>(spotLight);
+&#125;</code></pre></div>
+
+<h3 id="7-3-动态数据更新"><a href="#7-3-动态数据更新" class="headerlink" title="7.3 动态数据更新"></a>7.3 动态数据更新</h3><p>通过 WebSocket 或 API 调用实现数据的动态更新，可以使 3D 图表实时反映最新的数据。以下是一个模拟动态数据更新的示例：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">updateDataPoints</span>(<span class="hljs-params">newData</span>) &#123;
+    <span class="hljs-comment">// 移除旧的数据点</span>
+    scene.<span class="hljs-property">children</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">child</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">if</span> (child.<span class="hljs-property">isMesh</span> &amp;&amp; child.<span class="hljs-property">geometry</span>.<span class="hljs-property">type</span> === <span class="hljs-string">&#x27;SphereGeometry&#x27;</span>) &#123;
+            scene.<span class="hljs-title function_">remove</span>(child);
+        &#125;
+    &#125;);
+
+    <span class="hljs-comment">// 添加新的数据点</span>
+    <span class="hljs-title function_">createDataPoints</span>(newData);
+&#125;
+
+<span class="hljs-comment">// 模拟动态数据更新</span>
+<span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-keyword">const</span> newData = [
+        &#123; <span class="hljs-attr">x</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span>, <span class="hljs-attr">y</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span>, <span class="hljs-attr">z</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span> &#125;,
+        &#123; <span class="hljs-attr">x</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span>, <span class="hljs-attr">y</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span>, <span class="hljs-attr">z</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span> &#125;,
+        &#123; <span class="hljs-attr">x</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span>, <span class="hljs-attr">y</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span>, <span class="hljs-attr">z</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">5</span> &#125;,
+    ];
+    <span class="hljs-title function_">updateDataPoints</span>(newData);
+&#125;, <span class="hljs-number">5000</span>);</code></pre></div>
+
+<h1 id="Geometry-进阶详解：作用、原理、意义与优化"><a href="#Geometry-进阶详解：作用、原理、意义与优化" class="headerlink" title="Geometry 进阶详解：作用、原理、意义与优化"></a>Geometry 进阶详解：作用、原理、意义与优化</h1><p>在 Three.js 中，Geometry 是构建 3D 对象的基础，通过定义顶点、面和其它属性来描述 3D 形状。本篇文章将深入探讨 Three.js 中 Geometry 的作用、原理、意义以及如何优化几何体的性能。</p>
+<h2 id="1-作用"><a href="#1-作用" class="headerlink" title="1. 作用"></a>1. 作用</h2><p>Geometry 在 Three.js 中扮演了描述 3D 对象形状的角色。它包含了顶点、面和边的信息，用于定义物体的几何形状。常见的 Geometry 类型包括：</p>
+<ul>
+<li><strong>BoxGeometry</strong>：定义一个立方体。</li>
+<li><strong>SphereGeometry</strong>：定义一个球体。</li>
+<li><strong>PlaneGeometry</strong>：定义一个平面。</li>
+<li><strong>CylinderGeometry</strong>：定义一个圆柱体。</li>
+<li><strong>TorusGeometry</strong>：定义一个圆环。</li>
+</ul>
+<p>通过 Geometry，我们可以创建各种复杂的 3D 形状，并将它们添加到场景中进行渲染。</p>
+<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2. 原理"></a>2. 原理</h2><p>Geometry 由一系列顶点（Vertices）和面（Faces）组成。顶点定义了几何体的形状，面由顶点连接形成。Three.js 中的 Geometry 还可以包含法线（Normals）、UV 坐标和其它属性，用于更详细地描述几何体的外观和行为。</p>
+<h3 id="2-1-顶点和面"><a href="#2-1-顶点和面" class="headerlink" title="2.1 顶点和面"></a>2.1 顶点和面</h3><p>顶点是几何体的基本单位，通常用三维坐标表示。面是由顶点组成的多边形，通常是三角形或四边形。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Geometry</span>();
+
+<span class="hljs-comment">// 添加顶点</span>
+geometry.<span class="hljs-property">vertices</span>.<span class="hljs-title function_">push</span>(
+    <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+);
+
+<span class="hljs-comment">// 添加面（使用顶点索引）</span>
+geometry.<span class="hljs-property">faces</span>.<span class="hljs-title function_">push</span>(
+    <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Face3</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>),
+    <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Face3</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+);</code></pre></div>
+
+<h3 id="2-2-法线和-UV-坐标"><a href="#2-2-法线和-UV-坐标" class="headerlink" title="2.2 法线和 UV 坐标"></a>2.2 法线和 UV 坐标</h3><p>法线用于计算光照效果，UV 坐标用于纹理映射。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">geometry.<span class="hljs-property">faces</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">face</span> =&gt;</span> &#123;
+    face.<span class="hljs-property">vertexNormals</span>.<span class="hljs-title function_">push</span>(
+        <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>),
+        <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>),
+        <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector3</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
+    );
+&#125;);
+
+<span class="hljs-comment">// 添加 UV 坐标</span>
+geometry.<span class="hljs-property">faceVertexUvs</span>[<span class="hljs-number">0</span>].<span class="hljs-title function_">push</span>(
+    [<span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector2</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector2</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector2</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)],
+    [<span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector2</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector2</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Vector2</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)]
+);</code></pre></div>
+
+<h2 id="3-意义"><a href="#3-意义" class="headerlink" title="3. 意义"></a>3. 意义</h2><p>Geometry 在 3D 可视化和计算机图形学中具有重要意义。通过定义几何体的形状和属性，开发者可以创建逼真的 3D 场景和物体。这对于游戏开发、虚拟现实、建筑设计等领域尤为重要。Geometry 使得复杂的 3D 模型的创建和操控变得更加灵活和高效。</p>
+<h2 id="4-优化"><a href="#4-优化" class="headerlink" title="4. 优化"></a>4. 优化</h2><p>在处理复杂几何体时，优化是至关重要的。以下是一些优化 Geometry 的方法：</p>
+<h3 id="4-1-简化几何体"><a href="#4-1-简化几何体" class="headerlink" title="4.1 简化几何体"></a>4.1 简化几何体</h3><p>减少顶点和面数可以显著提高渲染性能。可以使用 LOD（Level of Detail）技术，根据距离选择不同复杂度的几何体。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// 较高细节</span>
+<span class="hljs-keyword">const</span> simpleGeometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// 较低细节</span>
+
+<span class="hljs-keyword">const</span> lod = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title function_">LOD</span>();
+lod.<span class="hljs-title function_">addLevel</span>(<span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material), <span class="hljs-number">0</span>);
+lod.<span class="hljs-title function_">addLevel</span>(<span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(simpleGeometry, material), <span class="hljs-number">50</span>);
+
+scene.<span class="hljs-title function_">add</span>(lod);</code></pre></div>
+
+<h3 id="4-2-合并几何体"><a href="#4-2-合并几何体" class="headerlink" title="4.2 合并几何体"></a>4.2 合并几何体</h3><p>将多个几何体合并为一个几何体，可以减少绘制调用次数，从而提高性能。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometries = [geometry1, geometry2, geometry3];
+<span class="hljs-keyword">const</span> mergedGeometry = <span class="hljs-variable constant_">THREE</span>.<span class="hljs-property">BufferGeometryUtils</span>.<span class="hljs-title function_">mergeBufferGeometries</span>(geometries);
+
+<span class="hljs-keyword">const</span> mesh = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(mergedGeometry, material);
+scene.<span class="hljs-title function_">add</span>(mesh);</code></pre></div>
+
+<h3 id="4-3-使用-BufferGeometry"><a href="#4-3-使用-BufferGeometry" class="headerlink" title="4.3 使用 BufferGeometry"></a>4.3 使用 BufferGeometry</h3><p><code>BufferGeometry</code> 是 <code>Geometry</code> 的高效版本，使用类型化数组存储顶点和属性数据，性能更高。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BufferGeometry</span>();
+<span class="hljs-keyword">const</span> vertices = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Float32Array</span>([
+    -<span class="hljs-number">1.0</span>, -<span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>,
+    <span class="hljs-number">1.0</span>, -<span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>,
+    <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>,
+    -<span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>
+]);
+
+geometry.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;position&#x27;</span>, <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BufferAttribute</span>(vertices, <span class="hljs-number">3</span>));</code></pre></div>
+
+<h3 id="4-4-使用-InstancedMesh"><a href="#4-4-使用-InstancedMesh" class="headerlink" title="4.4 使用 InstancedMesh"></a>4.4 使用 InstancedMesh</h3><p>对于大量相同几何体的实例，可以使用 <code>InstancedMesh</code> 提高渲染效率。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+<span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span> &#125;);
+<span class="hljs-keyword">const</span> mesh = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">InstancedMesh</span>(geometry, material, <span class="hljs-number">100</span>);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+    <span class="hljs-keyword">const</span> matrix = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Matrix4</span>();
+    matrix.<span class="hljs-title function_">setPosition</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>, <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>, <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>);
+    mesh.<span class="hljs-title function_">setMatrixAt</span>(i, matrix);
+&#125;
+
+scene.<span class="hljs-title function_">add</span>(mesh);</code></pre></div>
+
+<h2 id="5-示例：创建一个复杂的-3D-模型"><a href="#5-示例：创建一个复杂的-3D-模型" class="headerlink" title="5. 示例：创建一个复杂的 3D 模型"></a>5. 示例：创建一个复杂的 3D 模型</h2><p>下面是一个完整的示例，展示了如何创建一个复杂的 3D 模型，并应用优化技术。</p>
+<h3 id="5-1-初始化场景"><a href="#5-1-初始化场景" class="headerlink" title="5.1 初始化场景"></a>5.1 初始化场景</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-variable constant_">THREE</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three&#x27;</span>;
+<span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">OrbitControls</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;
+<span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">BufferGeometryUtils</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/utils/BufferGeometryUtils.js&#x27;</span>;
+
+<span class="hljs-keyword">let</span> scene, camera, renderer, controls;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">init</span>(<span class="hljs-params"></span>) &#123;
+    scene = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Scene</span>();
+
+    camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PerspectiveCamera</span>(<span class="hljs-number">75</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+    camera.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>);
+
+    renderer = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>(&#123; <span class="hljs-attr">antialias</span>: <span class="hljs-literal">true</span> &#125;);
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(renderer.<span class="hljs-property">domElement</span>);
+
+    controls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrbitControls</span>(camera, renderer.<span class="hljs-property">domElement</span>);
+
+    <span class="hljs-title function_">addLight</span>();
+    <span class="hljs-title function_">addComplexModel</span>();
+
+    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, onWindowResize, <span class="hljs-literal">false</span>);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addLight</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> ambientLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AmbientLight</span>(<span class="hljs-number">0x404040</span>);
+    scene.<span class="hljs-title function_">add</span>(ambientLight);
+
+    <span class="hljs-keyword">const</span> directionalLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">DirectionalLight</span>(<span class="hljs-number">0xffffff</span>, <span class="hljs-number">1</span>);
+    directionalLight.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>);
+    scene.<span class="hljs-title function_">add</span>(directionalLight);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addComplexModel</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> geometries = [];
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;
+        <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>(), <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>(), <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>());
+        geometry.<span class="hljs-title function_">translate</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>, <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>, <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>);
+        geometries.<span class="hljs-title function_">push</span>(geometry);
+    &#125;
+
+    <span class="hljs-keyword">const</span> mergedGeometry = <span class="hljs-title class_">BufferGeometryUtils</span>.<span class="hljs-title function_">mergeBufferGeometries</span>(geometries);
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span> &#125;);
+    <span class="hljs-keyword">const</span> mesh = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(mergedGeometry, material);
+
+    scene.<span class="hljs-title function_">add</span>(mesh);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onWindowResize</span>(<span class="hljs-params"></span>) &#123;
+    camera.<span class="hljs-property">aspect</span> = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>;
+    camera.<span class="hljs-title function_">updateProjectionMatrix</span>();
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+    controls.<span class="hljs-title function_">update</span>();
+    renderer.<span class="hljs-title function_">render</span>(scene, camera);
+&#125;
+
+<span class="hljs-title function_">init</span>();
+<span class="hljs-title function_">animate</span>();</code></pre></div>
+
+<h1 id="纹理材质高级操作指南"><a href="#纹理材质高级操作指南" class="headerlink" title="纹理材质高级操作指南"></a>纹理材质高级操作指南</h1><p>在 Three.js 中，纹理和材质是创建逼真 3D 场景的关键元素。通过合理使用和高级操作，可以实现各种复杂的视觉效果。本指南将深入探讨 Three.js 中纹理材质的高级操作，包括多种材质类型的使用、纹理映射、纹理操作和优化技术。</p>
+<h2 id="1-材质类型"><a href="#1-材质类型" class="headerlink" title="1. 材质类型"></a>1. 材质类型</h2><p>Three.js 提供了多种材质，每种材质都有其特定的用途和特点。以下是一些常用的材质类型：</p>
+<h3 id="1-1-MeshBasicMaterial"><a href="#1-1-MeshBasicMaterial" class="headerlink" title="1.1 MeshBasicMaterial"></a>1.1 MeshBasicMaterial</h3><p>一种不受光照影响的材质，通常用于简单的几何体或背景。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshBasicMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0xff0000</span> &#125;);</code></pre></div>
+
+<h3 id="1-2-MeshStandardMaterial"><a href="#1-2-MeshStandardMaterial" class="headerlink" title="1.2 MeshStandardMaterial"></a>1.2 MeshStandardMaterial</h3><p>一种物理基础渲染 (PBR) 材质，支持光照、反射和粗糙度。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x00ff00</span>, <span class="hljs-attr">roughness</span>: <span class="hljs-number">0.5</span>, <span class="hljs-attr">metalness</span>: <span class="hljs-number">0.5</span> &#125;);</code></pre></div>
+
+<h3 id="1-3-MeshPhongMaterial"><a href="#1-3-MeshPhongMaterial" class="headerlink" title="1.3 MeshPhongMaterial"></a>1.3 MeshPhongMaterial</h3><p>一种光滑的材质，支持高光反射，适合用于金属和光滑表面。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshPhongMaterial</span>(&#123; <span class="hljs-attr">color</span>: <span class="hljs-number">0x0000ff</span>, <span class="hljs-attr">shininess</span>: <span class="hljs-number">100</span> &#125;);</code></pre></div>
+
+<h3 id="1-4-MeshPhysicalMaterial"><a href="#1-4-MeshPhysicalMaterial" class="headerlink" title="1.4 MeshPhysicalMaterial"></a>1.4 MeshPhysicalMaterial</h3><p>一种更高级的 PBR 材质，支持透明度、折射率等属性。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshPhysicalMaterial</span>(&#123;
+    <span class="hljs-attr">color</span>: <span class="hljs-number">0xffff00</span>,
+    <span class="hljs-attr">roughness</span>: <span class="hljs-number">0.1</span>,
+    <span class="hljs-attr">metalness</span>: <span class="hljs-number">1.0</span>,
+    <span class="hljs-attr">clearcoat</span>: <span class="hljs-number">1.0</span>,
+    <span class="hljs-attr">clearcoatRoughness</span>: <span class="hljs-number">0.1</span>
+&#125;);</code></pre></div>
+
+<h2 id="2-纹理映射"><a href="#2-纹理映射" class="headerlink" title="2. 纹理映射"></a>2. 纹理映射</h2><p>纹理映射是将图像应用到 3D 模型表面的一种技术。Three.js 支持多种纹理映射类型，如颜色纹理、法线贴图、粗糙度贴图等。</p>
+<h3 id="2-1-加载纹理"><a href="#2-1-加载纹理" class="headerlink" title="2.1 加载纹理"></a>2.1 加载纹理</h3><p>使用 <code>TextureLoader</code> 加载纹理：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> textureLoader = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">TextureLoader</span>();
+<span class="hljs-keyword">const</span> texture = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/texture.jpg&#x27;</span>);</code></pre></div>
+
+<h3 id="2-2-应用纹理"><a href="#2-2-应用纹理" class="headerlink" title="2.2 应用纹理"></a>2.2 应用纹理</h3><p>将纹理应用到材质上：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123; <span class="hljs-attr">map</span>: texture &#125;);
+<span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>();
+<span class="hljs-keyword">const</span> mesh = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+scene.<span class="hljs-title function_">add</span>(mesh);</code></pre></div>
+
+<h3 id="2-3-法线贴图"><a href="#2-3-法线贴图" class="headerlink" title="2.3 法线贴图"></a>2.3 法线贴图</h3><p>法线贴图用于模拟表面细节，增强视觉效果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> normalMap = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/normalMap.jpg&#x27;</span>);
+<span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123;
+    <span class="hljs-attr">map</span>: texture,
+    <span class="hljs-attr">normalMap</span>: normalMap
+&#125;);</code></pre></div>
+
+<h3 id="2-4-粗糙度贴图"><a href="#2-4-粗糙度贴图" class="headerlink" title="2.4 粗糙度贴图"></a>2.4 粗糙度贴图</h3><p>粗糙度贴图用于控制表面粗糙度，实现更真实的材质效果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> roughnessMap = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/roughnessMap.jpg&#x27;</span>);
+<span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123;
+    <span class="hljs-attr">map</span>: texture,
+    <span class="hljs-attr">roughnessMap</span>: roughnessMap
+&#125;);</code></pre></div>
+
+<h2 id="3-高级纹理操作"><a href="#3-高级纹理操作" class="headerlink" title="3. 高级纹理操作"></a>3. 高级纹理操作</h2><p>在使用纹理时，可以进行一些高级操作，如纹理重复、偏移、旋转等。</p>
+<h3 id="3-1-纹理重复"><a href="#3-1-纹理重复" class="headerlink" title="3.1 纹理重复"></a>3.1 纹理重复</h3><p>可以设置纹理在几何体表面上的重复方式：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">texture.<span class="hljs-property">wrapS</span> = <span class="hljs-variable constant_">THREE</span>.<span class="hljs-property">RepeatWrapping</span>;
+texture.<span class="hljs-property">wrapT</span> = <span class="hljs-variable constant_">THREE</span>.<span class="hljs-property">RepeatWrapping</span>;
+texture.<span class="hljs-property">repeat</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);  <span class="hljs-comment">// 水平和垂直重复两次</span></code></pre></div>
+
+<h3 id="3-2-纹理偏移"><a href="#3-2-纹理偏移" class="headerlink" title="3.2 纹理偏移"></a>3.2 纹理偏移</h3><p>可以设置纹理的偏移量：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">texture.<span class="hljs-property">offset</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>);  <span class="hljs-comment">// 将纹理在水平和垂直方向上偏移0.5</span></code></pre></div>
+
+<h3 id="3-3-纹理旋转"><a href="#3-3-纹理旋转" class="headerlink" title="3.3 纹理旋转"></a>3.3 纹理旋转</h3><p>可以设置纹理的旋转角度：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">texture.<span class="hljs-property">rotation</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span> / <span class="hljs-number">4</span>;  <span class="hljs-comment">// 将纹理旋转45度</span>
+texture.<span class="hljs-property">center</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>);  <span class="hljs-comment">// 旋转中心设置为纹理的中心</span></code></pre></div>
+
+<h2 id="4-优化技术"><a href="#4-优化技术" class="headerlink" title="4. 优化技术"></a>4. 优化技术</h2><p>在处理复杂场景时，优化纹理和材质的性能至关重要。以下是一些常见的优化技术：</p>
+<h3 id="4-1-使用低分辨率纹理"><a href="#4-1-使用低分辨率纹理" class="headerlink" title="4.1 使用低分辨率纹理"></a>4.1 使用低分辨率纹理</h3><p>对于远距离或不重要的对象，可以使用低分辨率纹理，减少内存和计算资源的消耗。</p>
+<h3 id="4-2-纹理压缩"><a href="#4-2-纹理压缩" class="headerlink" title="4.2 纹理压缩"></a>4.2 纹理压缩</h3><p>使用纹理压缩技术（如 DDS、KTX 格式），可以显著减少纹理的内存占用和加载时间。</p>
+<h3 id="4-3-合并纹理"><a href="#4-3-合并纹理" class="headerlink" title="4.3 合并纹理"></a>4.3 合并纹理</h3><p>将多个小纹理合并为一张大纹理（纹理集），可以减少纹理切换次数，提高渲染性能。</p>
+<h3 id="4-4-延迟加载"><a href="#4-4-延迟加载" class="headerlink" title="4.4 延迟加载"></a>4.4 延迟加载</h3><p>对于不立即需要的纹理，可以使用延迟加载技术，在需要时才加载纹理，避免一次性加载过多资源。</p>
+<h3 id="4-5-使用-mipmaps"><a href="#4-5-使用-mipmaps" class="headerlink" title="4.5 使用 mipmaps"></a>4.5 使用 mipmaps</h3><p>Three.js 默认会为纹理生成 mipmaps，可以提高缩放时的纹理质量和渲染性能。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">texture.<span class="hljs-property">generateMipmaps</span> = <span class="hljs-literal">true</span>;</code></pre></div>
+
+<h2 id="5-示例：创建一个高级纹理材质的-3D-模型"><a href="#5-示例：创建一个高级纹理材质的-3D-模型" class="headerlink" title="5. 示例：创建一个高级纹理材质的 3D 模型"></a>5. 示例：创建一个高级纹理材质的 3D 模型</h2><p>下面是一个完整的示例，展示了如何创建一个使用高级纹理材质的 3D 模型，并应用优化技术。</p>
+<h3 id="5-1-初始化场景-1"><a href="#5-1-初始化场景-1" class="headerlink" title="5.1 初始化场景"></a>5.1 初始化场景</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <span class="hljs-variable constant_">THREE</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three&#x27;</span>;
+<span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">OrbitControls</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;
+
+<span class="hljs-keyword">let</span> scene, camera, renderer, controls;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">init</span>(<span class="hljs-params"></span>) &#123;
+    scene = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Scene</span>();
+
+    camera = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">PerspectiveCamera</span>(<span class="hljs-number">75</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1000</span>);
+    camera.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>);
+
+    renderer = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">WebGLRenderer</span>(&#123; <span class="hljs-attr">antialias</span>: <span class="hljs-literal">true</span> &#125;);
+    renderer.<span class="hljs-title function_">setSize</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span>, <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>);
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(renderer.<span class="hljs-property">domElement</span>);
+
+    controls = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrbitControls</span>(camera, renderer.<span class="hljs-property">domElement</span>);
+
+    <span class="hljs-title function_">addLight</span>();
+    <span class="hljs-title function_">addTexturedModel</span>();
+
+    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, onWindowResize, <span class="hljs-literal">false</span>);
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">addLight</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> ambientLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">AmbientLight</span>(<span class="hljs-number">0x404040</span>);
+    scene.<span class="hljs-title function_">add</span>(ambientLight);
+
+    <span class="hljs-keyword">const</span> directionalLight = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">DirectionalLight</span>(<span class="hljs-number">0xffffff</span>, <span class="hljs-number">1</span>);
+    directionalLight.<span class="hljs-property">position</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>);
+    scene.<span class="hljs-title function_">add</span>(directionalLight);
+&#125;</code></pre></div>
+
+<h3 id="5-2-加载和应用纹理"><a href="#5-2-加载和应用纹理" class="headerlink" title="5.2 加载和应用纹理"></a>5.2 加载和应用纹理</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addTexturedModel</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> textureLoader = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">TextureLoader</span>();
+    <span class="hljs-keyword">const</span> texture = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/texture.jpg&#x27;</span>);
+    <span class="hljs-keyword">const</span> normalMap = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/normalMap.jpg&#x27;</span>);
+    <span class="hljs-keyword">const</span> roughnessMap = textureLoader.<span class="hljs-title function_">load</span>(<span class="hljs-string">&#x27;path/to/roughnessMap.jpg&#x27;</span>);
+
+    texture.<span class="hljs-property">wrapS</span> = <span class="hljs-variable constant_">THREE</span>.<span class="hljs-property">RepeatWrapping</span>;
+    texture.<span class="hljs-property">wrapT</span> = <span class="hljs-variable constant_">THREE</span>.<span class="hljs-property">RepeatWrapping</span>;
+    texture.<span class="hljs-property">repeat</span>.<span class="hljs-title function_">set</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+
+    <span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">MeshStandardMaterial</span>(&#123;
+        <span class="hljs-attr">map</span>: texture,
+        <span class="hljs-attr">normalMap</span>: normalMap,
+        <span class="hljs-attr">roughnessMap</span>: roughnessMap
+    &#125;);
+
+    <span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">BoxGeometry</span>();
+    <span class="hljs-keyword">const</span> mesh = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">THREE</span>.<span class="hljs-title class_">Mesh</span>(geometry, material);
+    scene.<span class="hljs-title function_">add</span>(mesh);
+&#125;</code></pre></div>
+
+<h3 id="5-3-动画循环"><a href="#5-3-动画循环" class="headerlink" title="5.3 动画循环"></a>5.3 动画循环</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-title function_">requestAnimationFrame</span>(animate);
+    controls.<span class="hljs-title function_">update</span>();
+    renderer.<span class="hljs-title function_">render</span>(scene, camera);
+&#125;
+
+<span class="hljs-title function_">init</span>();
+<span class="hljs-title function_">animate</span>();</code></pre></div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF/" class="print-no-link">#前端</a>
+      
+        <a href="/tags/three-js/" class="print-no-link">#three.js</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Three.js可视化企业实战WEBGL课-2024升级版</div>
+      <div>http://example.com/2024/05/31/Three-js可视化企业实战WEBGL课-2024升级版/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tan ChuYang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/31/%E5%A4%9A%E7%AB%AF%E5%85%A8%E6%A0%88%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%EF%BC%9A%E5%A4%A7%E5%9E%8B%E5%95%86%E4%B8%9A%E7%BA%A7%E4%BB%A3%E9%A9%BE%E4%B8%9A%E5%8A%A1%E5%85%A8%E6%B5%81%E7%A8%8B%E8%90%BD%E5%9C%B02024/" title="多端全栈项目实战：大型商业级代驾业务全流程落地2024">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">多端全栈项目实战：大型商业级代驾业务全流程落地2024</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/31/%E7%BD%91%E6%98%93Three-js%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BC%81%E4%B8%9A%E5%AE%9E%E6%88%98WEBGL%E8%AF%BE/" title="网易Three.js可视化企业实战WEBGL课2024">
+                        <span class="hidden-mobile">网易Three.js可视化企业实战WEBGL课2024</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"B8kWDiFEXDhqgdeaFDgF1J20-MdYXbMMI","appKey":"hgpr0J2gtv8uaHbnszwKJ4g9","path":"window.location.pathname","placeholder":"...","avatar":"retro","meta":["nick"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

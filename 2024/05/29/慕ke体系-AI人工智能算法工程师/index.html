@@ -16,16 +16,17 @@
   <meta name="author" content="Tan ChuYang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 深度卷积神经网络（Deep CNN）深度卷积神经网络通过增加更多的卷积层和池化层来捕捉更多的图像特征，从而提高图像分类的准确率。以下是一个使用VGG16模型的示例，该模型在ImageNet挑战中表现优异。 123456789101112131415161718192021222324252627282930313233343536373839404142434445from tensorfl">
+    <meta name="description" content="1. 深度卷积神经网络（Deep CNN）深度卷积神经网络通过增加更多的卷积层和池化层来捕捉更多的图像特征，从而提高图像分类的准确率。以下是一个使用VGG16模型的示例，该模型在ImageNet挑战中表现优异。 from tensorflow.keras.applications import VGG16 from tensorflow.keras.preprocessing.image impo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="慕ke体系-AI人工智能算法工程师">
 <meta property="og:url" content="http://example.com/2024/05/29/%E6%85%95ke%E4%BD%93%E7%B3%BB-AI%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88/index.html">
 <meta property="og:site_name" content="羊小羊的博客">
-<meta property="og:description" content="1. 深度卷积神经网络（Deep CNN）深度卷积神经网络通过增加更多的卷积层和池化层来捕捉更多的图像特征，从而提高图像分类的准确率。以下是一个使用VGG16模型的示例，该模型在ImageNet挑战中表现优异。 123456789101112131415161718192021222324252627282930313233343536373839404142434445from tensorfl">
+<meta property="og:description" content="1. 深度卷积神经网络（Deep CNN）深度卷积神经网络通过增加更多的卷积层和池化层来捕捉更多的图像特征，从而提高图像分类的准确率。以下是一个使用VGG16模型的示例，该模型在ImageNet挑战中表现优异。 from tensorflow.keras.applications import VGG16 from tensorflow.keras.preprocessing.image impo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-28T23:53:26.000Z">
-<meta property="article:modified_time" content="2024-05-29T05:08:05.499Z">
+<meta property="article:modified_time" content="2024-06-06T10:20:11.608Z">
 <meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -68,7 +69,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -273,7 +274,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年5月29日 下午
+                    本文最后更新于 2024年6月6日 晚上
                   
                 
               </p>
@@ -282,16 +283,218 @@
               <div class="markdown-body">
                 
                 <h2 id="1-深度卷积神经网络（Deep-CNN）"><a href="#1-深度卷积神经网络（Deep-CNN）" class="headerlink" title="1. 深度卷积神经网络（Deep CNN）"></a>1. 深度卷积神经网络（Deep CNN）</h2><p>深度卷积神经网络通过增加更多的卷积层和池化层来捕捉更多的图像特征，从而提高图像分类的准确率。以下是一个使用VGG16模型的示例，该模型在ImageNet挑战中表现优异。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> tensorflow.keras.applications <span class="hljs-keyword">import</span> VGG16<br><span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.image <span class="hljs-keyword">import</span> ImageDataGenerator<br><span class="hljs-keyword">from</span> tensorflow.keras <span class="hljs-keyword">import</span> layers, models<br><br><span class="hljs-comment"># 加载预训练的VGG16模型</span><br>vgg16_base = VGG16(weights=<span class="hljs-string">&#x27;imagenet&#x27;</span>, include_top=<span class="hljs-literal">False</span>, input_shape=(<span class="hljs-number">150</span>, <span class="hljs-number">150</span>, <span class="hljs-number">3</span>))<br><br><span class="hljs-comment"># 冻结卷积基</span><br>vgg16_base.trainable = <span class="hljs-literal">False</span><br><br><span class="hljs-comment"># 构建模型</span><br>model = models.Sequential()<br>model.add(vgg16_base)<br>model.add(layers.Flatten())<br>model.add(layers.Dense(<span class="hljs-number">256</span>, activation=<span class="hljs-string">&#x27;relu&#x27;</span>))<br>model.add(layers.Dense(<span class="hljs-number">1</span>, activation=<span class="hljs-string">&#x27;sigmoid&#x27;</span>))<br><br><span class="hljs-comment"># 编译模型</span><br>model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>,<br>              loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>,<br>              metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])<br><br><span class="hljs-comment"># 数据预处理</span><br>train_datagen = ImageDataGenerator(rescale=<span class="hljs-number">1.</span>/<span class="hljs-number">255</span>)<br>validation_datagen = ImageDataGenerator(rescale=<span class="hljs-number">1.</span>/<span class="hljs-number">255</span>)<br><br>train_generator = train_datagen.flow_from_directory(<br>    <span class="hljs-string">&#x27;data/train&#x27;</span>,<br>    target_size=(<span class="hljs-number">150</span>, <span class="hljs-number">150</span>),<br>    batch_size=<span class="hljs-number">20</span>,<br>    class_mode=<span class="hljs-string">&#x27;binary&#x27;</span>)<br><br>validation_generator = validation_datagen.flow_from_directory(<br>    <span class="hljs-string">&#x27;data/validation&#x27;</span>,<br>    target_size=(<span class="hljs-number">150</span>, <span class="hljs-number">150</span>),<br>    batch_size=<span class="hljs-number">20</span>,<br>    class_mode=<span class="hljs-string">&#x27;binary&#x27;</span>)<br><br><span class="hljs-comment"># 训练模型</span><br>history = model.fit(<br>    train_generator,<br>    steps_per_epoch=<span class="hljs-number">100</span>,<br>    epochs=<span class="hljs-number">30</span>,<br>    validation_data=validation_generator,<br>    validation_steps=<span class="hljs-number">50</span>)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> tensorflow.keras.applications <span class="hljs-keyword">import</span> VGG16
+<span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.image <span class="hljs-keyword">import</span> ImageDataGenerator
+<span class="hljs-keyword">from</span> tensorflow.keras <span class="hljs-keyword">import</span> layers, models
+
+<span class="hljs-comment"># 加载预训练的VGG16模型</span>
+vgg16_base = VGG16(weights=<span class="hljs-string">&#x27;imagenet&#x27;</span>, include_top=<span class="hljs-literal">False</span>, input_shape=(<span class="hljs-number">150</span>, <span class="hljs-number">150</span>, <span class="hljs-number">3</span>))
+
+<span class="hljs-comment"># 冻结卷积基</span>
+vgg16_base.trainable = <span class="hljs-literal">False</span>
+
+<span class="hljs-comment"># 构建模型</span>
+model = models.Sequential()
+model.add(vgg16_base)
+model.add(layers.Flatten())
+model.add(layers.Dense(<span class="hljs-number">256</span>, activation=<span class="hljs-string">&#x27;relu&#x27;</span>))
+model.add(layers.Dense(<span class="hljs-number">1</span>, activation=<span class="hljs-string">&#x27;sigmoid&#x27;</span>))
+
+<span class="hljs-comment"># 编译模型</span>
+model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>,
+              loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>,
+              metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])
+
+<span class="hljs-comment"># 数据预处理</span>
+train_datagen = ImageDataGenerator(rescale=<span class="hljs-number">1.</span>/<span class="hljs-number">255</span>)
+validation_datagen = ImageDataGenerator(rescale=<span class="hljs-number">1.</span>/<span class="hljs-number">255</span>)
+
+train_generator = train_datagen.flow_from_directory(
+    <span class="hljs-string">&#x27;data/train&#x27;</span>,
+    target_size=(<span class="hljs-number">150</span>, <span class="hljs-number">150</span>),
+    batch_size=<span class="hljs-number">20</span>,
+    class_mode=<span class="hljs-string">&#x27;binary&#x27;</span>)
+
+validation_generator = validation_datagen.flow_from_directory(
+    <span class="hljs-string">&#x27;data/validation&#x27;</span>,
+    target_size=(<span class="hljs-number">150</span>, <span class="hljs-number">150</span>),
+    batch_size=<span class="hljs-number">20</span>,
+    class_mode=<span class="hljs-string">&#x27;binary&#x27;</span>)
+
+<span class="hljs-comment"># 训练模型</span>
+history = model.fit(
+    train_generator,
+    steps_per_epoch=<span class="hljs-number">100</span>,
+    epochs=<span class="hljs-number">30</span>,
+    validation_data=validation_generator,
+    validation_steps=<span class="hljs-number">50</span>)</code></pre></div>
 
 <h2 id="2-长短期记忆网络（LSTM）"><a href="#2-长短期记忆网络（LSTM）" class="headerlink" title="2. 长短期记忆网络（LSTM）"></a>2. 长短期记忆网络（LSTM）</h2><p>LSTM是RNN的一种变体，擅长处理长时间依赖问题。以下是一个改进版的LSTM实现，用于文本生成任务。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Embedding, LSTM, Dense<br><span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.text <span class="hljs-keyword">import</span> Tokenizer<br><span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.sequence <span class="hljs-keyword">import</span> pad_sequences<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 文本数据</span><br>data = <span class="hljs-string">&quot;&quot;&quot;Your text data here&quot;&quot;&quot;</span><br><br><span class="hljs-comment"># 文本预处理</span><br>tokenizer = Tokenizer()<br>tokenizer.fit_on_texts([data])<br>total_words = <span class="hljs-built_in">len</span>(tokenizer.word_index) + <span class="hljs-number">1</span><br><br>input_sequences = []<br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> data.split(<span class="hljs-string">&#x27;\n&#x27;</span>):<br>    token_list = tokenizer.texts_to_sequences([line])[<span class="hljs-number">0</span>]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(token_list)):<br>        n_gram_sequence = token_list[:i+<span class="hljs-number">1</span>]<br>        input_sequences.append(n_gram_sequence)<br><br><span class="hljs-comment"># 填充序列</span><br>max_sequence_len = <span class="hljs-built_in">max</span>([<span class="hljs-built_in">len</span>(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> input_sequences])<br>input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding=<span class="hljs-string">&#x27;pre&#x27;</span>))<br><br><span class="hljs-comment"># 创建预测变量</span><br>xs, labels = input_sequences[:,:-<span class="hljs-number">1</span>],input_sequences[:,-<span class="hljs-number">1</span>]<br>ys = tf.keras.utils.to_categorical(labels, num_classes=total_words)<br><br><span class="hljs-comment"># 构建模型</span><br>model = tf.keras.Sequential()<br>model.add(Embedding(total_words, <span class="hljs-number">100</span>, input_length=max_sequence_len-<span class="hljs-number">1</span>))<br>model.add(LSTM(<span class="hljs-number">150</span>))<br>model.add(Dense(total_words, activation=<span class="hljs-string">&#x27;softmax&#x27;</span>))<br><br><span class="hljs-comment"># 编译模型</span><br>model.<span class="hljs-built_in">compile</span>(loss=<span class="hljs-string">&#x27;categorical_crossentropy&#x27;</span>, optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])<br><br><span class="hljs-comment"># 训练模型</span><br>history = model.fit(xs, ys, epochs=<span class="hljs-number">100</span>, verbose=<span class="hljs-number">1</span>)<br><br><span class="hljs-comment"># 文本生成</span><br>seed_text = <span class="hljs-string">&quot;Your seed text&quot;</span><br>next_words = <span class="hljs-number">50</span><br><br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(next_words):<br>    token_list = tokenizer.texts_to_sequences([seed_text])[<span class="hljs-number">0</span>]<br>    token_list = pad_sequences([token_list], maxlen=max_sequence_len-<span class="hljs-number">1</span>, padding=<span class="hljs-string">&#x27;pre&#x27;</span>)<br>    predicted = np.argmax(model.predict(token_list, verbose=<span class="hljs-number">0</span>), axis=-<span class="hljs-number">1</span>)<br>    output_word = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> word, index <span class="hljs-keyword">in</span> tokenizer.word_index.items():<br>        <span class="hljs-keyword">if</span> index == predicted:<br>            output_word = word<br>            <span class="hljs-keyword">break</span><br>    seed_text += <span class="hljs-string">&quot; &quot;</span> + output_word<br><span class="hljs-built_in">print</span>(seed_text)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Embedding, LSTM, Dense
+<span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.text <span class="hljs-keyword">import</span> Tokenizer
+<span class="hljs-keyword">from</span> tensorflow.keras.preprocessing.sequence <span class="hljs-keyword">import</span> pad_sequences
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-comment"># 文本数据</span>
+data = <span class="hljs-string">&quot;&quot;&quot;Your text data here&quot;&quot;&quot;</span>
+
+<span class="hljs-comment"># 文本预处理</span>
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts([data])
+total_words = <span class="hljs-built_in">len</span>(tokenizer.word_index) + <span class="hljs-number">1</span>
+
+input_sequences = []
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> data.split(<span class="hljs-string">&#x27;\n&#x27;</span>):
+    token_list = tokenizer.texts_to_sequences([line])[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(token_list)):
+        n_gram_sequence = token_list[:i+<span class="hljs-number">1</span>]
+        input_sequences.append(n_gram_sequence)
+
+<span class="hljs-comment"># 填充序列</span>
+max_sequence_len = <span class="hljs-built_in">max</span>([<span class="hljs-built_in">len</span>(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> input_sequences])
+input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding=<span class="hljs-string">&#x27;pre&#x27;</span>))
+
+<span class="hljs-comment"># 创建预测变量</span>
+xs, labels = input_sequences[:,:-<span class="hljs-number">1</span>],input_sequences[:,-<span class="hljs-number">1</span>]
+ys = tf.keras.utils.to_categorical(labels, num_classes=total_words)
+
+<span class="hljs-comment"># 构建模型</span>
+model = tf.keras.Sequential()
+model.add(Embedding(total_words, <span class="hljs-number">100</span>, input_length=max_sequence_len-<span class="hljs-number">1</span>))
+model.add(LSTM(<span class="hljs-number">150</span>))
+model.add(Dense(total_words, activation=<span class="hljs-string">&#x27;softmax&#x27;</span>))
+
+<span class="hljs-comment"># 编译模型</span>
+model.<span class="hljs-built_in">compile</span>(loss=<span class="hljs-string">&#x27;categorical_crossentropy&#x27;</span>, optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])
+
+<span class="hljs-comment"># 训练模型</span>
+history = model.fit(xs, ys, epochs=<span class="hljs-number">100</span>, verbose=<span class="hljs-number">1</span>)
+
+<span class="hljs-comment"># 文本生成</span>
+seed_text = <span class="hljs-string">&quot;Your seed text&quot;</span>
+next_words = <span class="hljs-number">50</span>
+
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(next_words):
+    token_list = tokenizer.texts_to_sequences([seed_text])[<span class="hljs-number">0</span>]
+    token_list = pad_sequences([token_list], maxlen=max_sequence_len-<span class="hljs-number">1</span>, padding=<span class="hljs-string">&#x27;pre&#x27;</span>)
+    predicted = np.argmax(model.predict(token_list, verbose=<span class="hljs-number">0</span>), axis=-<span class="hljs-number">1</span>)
+    output_word = <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> word, index <span class="hljs-keyword">in</span> tokenizer.word_index.items():
+        <span class="hljs-keyword">if</span> index == predicted:
+            output_word = word
+            <span class="hljs-keyword">break</span>
+    seed_text += <span class="hljs-string">&quot; &quot;</span> + output_word
+<span class="hljs-built_in">print</span>(seed_text)</code></pre></div>
 
 <h2 id="3-注意力机制和Transformer模型"><a href="#3-注意力机制和Transformer模型" class="headerlink" title="3. 注意力机制和Transformer模型"></a>3. 注意力机制和Transformer模型</h2><p>Transformer模型引入了注意力机制，在自然语言处理任务中表现出色。以下是一个简单的Transformer实现，用于机器翻译任务。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Dense, LayerNormalization, Embedding, MultiHeadAttention, Dropout<br><span class="hljs-keyword">from</span> tensorflow.keras.models <span class="hljs-keyword">import</span> Model<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TransformerBlock</span>(tf.keras.layers.Layer):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, embed_dim, num_heads, ff_dim, rate=<span class="hljs-number">0.1</span></span>):<br>        <span class="hljs-built_in">super</span>(TransformerBlock, self).__init__()<br>        self.att = MultiHeadAttention(num_heads=num_heads, key_dim=embed_dim)<br>        self.ffn = tf.keras.Sequential(<br>            [Dense(ff_dim, activation=<span class="hljs-string">&quot;relu&quot;</span>), Dense(embed_dim),]<br>        )<br>        self.layernorm1 = LayerNormalization(epsilon=<span class="hljs-number">1e-6</span>)<br>        self.layernorm2 = LayerNormalization(epsilon=<span class="hljs-number">1e-6</span>)<br>        self.dropout1 = Dropout(rate)<br>        self.dropout2 = Dropout(rate)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">call</span>(<span class="hljs-params">self, inputs, training</span>):<br>        attn_output = self.att(inputs, inputs)<br>        attn_output = self.dropout1(attn_output, training=training)<br>        out1 = self.layernorm1(inputs + attn_output)<br>        ffn_output = self.ffn(out1)<br>        ffn_output = self.dropout2(ffn_output, training=training)<br>        <span class="hljs-keyword">return</span> self.layernorm2(out1 + ffn_output)<br><br><span class="hljs-comment"># 创建Transformer模型</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TokenAndPositionEmbedding</span>(tf.keras.layers.Layer):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, maxlen, vocab_size, embed_dim</span>):<br>        <span class="hljs-built_in">super</span>(TokenAndPositionEmbedding, self).__init__()<br>        self.token_emb = Embedding(input_dim=vocab_size, output_dim=embed_dim)<br>        self.pos_emb = Embedding(input_dim=maxlen, output_dim=embed_dim)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">call</span>(<span class="hljs-params">self, x</span>):<br>        maxlen = tf.shape(x)[-<span class="hljs-number">1</span>]<br>        positions = tf.<span class="hljs-built_in">range</span>(start=<span class="hljs-number">0</span>, limit=maxlen, delta=<span class="hljs-number">1</span>)<br>        positions = self.pos_emb(positions)<br>        x = self.token_emb(x)<br>        <span class="hljs-keyword">return</span> x + positions<br><br>vocab_size = <span class="hljs-number">20000</span>  <span class="hljs-comment"># 词汇表大小</span><br>maxlen = <span class="hljs-number">200</span>  <span class="hljs-comment"># 序列最大长度</span><br>embed_dim = <span class="hljs-number">32</span>  <span class="hljs-comment"># 嵌入维度</span><br>num_heads = <span class="hljs-number">2</span>  <span class="hljs-comment"># 注意力头数量</span><br>ff_dim = <span class="hljs-number">32</span>  <span class="hljs-comment"># 前馈网络维度</span><br><br>inputs = tf.keras.Input(shape=(maxlen,))<br>embedding_layer = TokenAndPositionEmbedding(maxlen, vocab_size, embed_dim)<br>x = embedding_layer(inputs)<br>transformer_block = TransformerBlock(embed_dim, num_heads, ff_dim)<br>x = transformer_block(x)<br>x = tf.keras.layers.GlobalAveragePooling1D()(x)<br>x = tf.keras.layers.Dropout(<span class="hljs-number">0.1</span>)(x)<br>x = tf.keras.layers.Dense(<span class="hljs-number">20</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>)(x)<br>x = tf.keras.layers.Dropout(<span class="hljs-number">0.1</span>)(x)<br>outputs = tf.keras.layers.Dense(<span class="hljs-number">2</span>, activation=<span class="hljs-string">&quot;softmax&quot;</span>)(x)<br><br>model = Model(inputs=inputs, outputs=outputs)<br><br><span class="hljs-comment"># 编译和训练模型</span><br>model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&quot;adam&quot;</span>, loss=<span class="hljs-string">&quot;sparse_categorical_crossentropy&quot;</span>, metrics=[<span class="hljs-string">&quot;accuracy&quot;</span>])<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">from</span> tensorflow.keras.layers <span class="hljs-keyword">import</span> Dense, LayerNormalization, Embedding, MultiHeadAttention, Dropout
+<span class="hljs-keyword">from</span> tensorflow.keras.models <span class="hljs-keyword">import</span> Model
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TransformerBlock</span>(tf.keras.layers.Layer):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, embed_dim, num_heads, ff_dim, rate=<span class="hljs-number">0.1</span></span>):
+        <span class="hljs-built_in">super</span>(TransformerBlock, self).__init__()
+        self.att = MultiHeadAttention(num_heads=num_heads, key_dim=embed_dim)
+        self.ffn = tf.keras.Sequential(
+            [Dense(ff_dim, activation=<span class="hljs-string">&quot;relu&quot;</span>), Dense(embed_dim),]
+        )
+        self.layernorm1 = LayerNormalization(epsilon=<span class="hljs-number">1e-6</span>)
+        self.layernorm2 = LayerNormalization(epsilon=<span class="hljs-number">1e-6</span>)
+        self.dropout1 = Dropout(rate)
+        self.dropout2 = Dropout(rate)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">call</span>(<span class="hljs-params">self, inputs, training</span>):
+        attn_output = self.att(inputs, inputs)
+        attn_output = self.dropout1(attn_output, training=training)
+        out1 = self.layernorm1(inputs + attn_output)
+        ffn_output = self.ffn(out1)
+        ffn_output = self.dropout2(ffn_output, training=training)
+        <span class="hljs-keyword">return</span> self.layernorm2(out1 + ffn_output)
+
+<span class="hljs-comment"># 创建Transformer模型</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TokenAndPositionEmbedding</span>(tf.keras.layers.Layer):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, maxlen, vocab_size, embed_dim</span>):
+        <span class="hljs-built_in">super</span>(TokenAndPositionEmbedding, self).__init__()
+        self.token_emb = Embedding(input_dim=vocab_size, output_dim=embed_dim)
+        self.pos_emb = Embedding(input_dim=maxlen, output_dim=embed_dim)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">call</span>(<span class="hljs-params">self, x</span>):
+        maxlen = tf.shape(x)[-<span class="hljs-number">1</span>]
+        positions = tf.<span class="hljs-built_in">range</span>(start=<span class="hljs-number">0</span>, limit=maxlen, delta=<span class="hljs-number">1</span>)
+        positions = self.pos_emb(positions)
+        x = self.token_emb(x)
+        <span class="hljs-keyword">return</span> x + positions
+
+vocab_size = <span class="hljs-number">20000</span>  <span class="hljs-comment"># 词汇表大小</span>
+maxlen = <span class="hljs-number">200</span>  <span class="hljs-comment"># 序列最大长度</span>
+embed_dim = <span class="hljs-number">32</span>  <span class="hljs-comment"># 嵌入维度</span>
+num_heads = <span class="hljs-number">2</span>  <span class="hljs-comment"># 注意力头数量</span>
+ff_dim = <span class="hljs-number">32</span>  <span class="hljs-comment"># 前馈网络维度</span>
+
+inputs = tf.keras.Input(shape=(maxlen,))
+embedding_layer = TokenAndPositionEmbedding(maxlen, vocab_size, embed_dim)
+x = embedding_layer(inputs)
+transformer_block = TransformerBlock(embed_dim, num_heads, ff_dim)
+x = transformer_block(x)
+x = tf.keras.layers.GlobalAveragePooling1D()(x)
+x = tf.keras.layers.Dropout(<span class="hljs-number">0.1</span>)(x)
+x = tf.keras.layers.Dense(<span class="hljs-number">20</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>)(x)
+x = tf.keras.layers.Dropout(<span class="hljs-number">0.1</span>)(x)
+outputs = tf.keras.layers.Dense(<span class="hljs-number">2</span>, activation=<span class="hljs-string">&quot;softmax&quot;</span>)(x)
+
+model = Model(inputs=inputs, outputs=outputs)
+
+<span class="hljs-comment"># 编译和训练模型</span>
+model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&quot;adam&quot;</span>, loss=<span class="hljs-string">&quot;sparse_categorical_crossentropy&quot;</span>, metrics=[<span class="hljs-string">&quot;accuracy&quot;</span>])</code></pre></div>
 
 <h2 id="4-自编码器（Autoencoder）"><a href="#4-自编码器（Autoencoder）" class="headerlink" title="4. 自编码器（Autoencoder）"></a>4. 自编码器（Autoencoder）</h2><p>自编码器用于无监督学习，尤其是在数据降维和特征提取方面。以下是一个简单的自编码器实现示例，用于图像去噪。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br><span class="hljs-keyword">from</span> tensorflow.keras <span class="hljs-keyword">import</span> layers, models<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 构建自编码器模型</span><br>input_img = tf.keras.Input(shape=(<span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>))<br><br><span class="hljs-comment"># 编码器</span><br>x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(input_img)<br>x = layers.MaxPooling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)<br>x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)<br>encoded = layers.MaxPooling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)<br><br><span class="hljs-comment"># 解码器</span><br>x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(encoded)<br>x = layers.UpSampling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))(x)<br>x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)<br>x = layers.UpSampling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))(x)<br>decoded = layers.Conv2D(<span class="hljs-number">1</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;sigmoid&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)<br><br>autoencoder = models.Model(input_img, decoded)<br>autoencoder.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>)<br><br><span class="hljs-comment"># 加载数据并添加噪声</span><br>(x_train, _), (x_test, _) = tf.keras.datasets.mnist.load_data()<br>x_train = x_train.astype(<span class="hljs-string">&#x27;float32&#x27;</span>) / <span class="hljs-number">255.</span><br>x_test = x_test.astype(<span class="hljs-string">&#x27;float32&#x27;</span>) / <span class="hljs-number">255.</span><br>x_train = np.reshape(x_train, (<span class="hljs-built_in">len</span>(x_train), <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>))<br>x_test = np.reshape(x_test, (<span class="hljs-built_in">len</span>(x_test), <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>))<br><br>noise_factor = <span class="hljs-number">0.5</span><br>x_train_noisy = x_train + noise_factor * np.random.normal(loc=<span class="hljs-number">0.0</span>, scale=<span class="hljs-number">1.0</span>, size=x_train.shape)<br>x_test_noisy = x_test + noise_factor * np.random.normal(loc=<span class="hljs-number">0.0</span>, scale=<span class="hljs-number">1.0</span>, size=x_test.shape)<br>x_train_noisy = np.clip(x_train_noisy, <span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>)<br>x_test_noisy = np.clip(x_test_noisy, <span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>)<br><br><span class="hljs-comment"># 训练自编码器</span><br>autoencoder.fit(x_train_noisy, x_train,<br>                epochs=<span class="hljs-number">50</span>,<br>                batch_size=<span class="hljs-number">256</span>,<br>                shuffle=<span class="hljs-literal">True</span>,<br>                validation_data=(x_test_noisy, x_test))<br><br><span class="hljs-comment"># 预测</span><br>decoded_imgs = autoencoder.predict(x_test_noisy)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">from</span> tensorflow.keras <span class="hljs-keyword">import</span> layers, models
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-comment"># 构建自编码器模型</span>
+input_img = tf.keras.Input(shape=(<span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>))
+
+<span class="hljs-comment"># 编码器</span>
+x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(input_img)
+x = layers.MaxPooling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)
+x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)
+encoded = layers.MaxPooling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)
+
+<span class="hljs-comment"># 解码器</span>
+x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(encoded)
+x = layers.UpSampling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))(x)
+x = layers.Conv2D(<span class="hljs-number">32</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;relu&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)
+x = layers.UpSampling2D((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))(x)
+decoded = layers.Conv2D(<span class="hljs-number">1</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">&#x27;sigmoid&#x27;</span>, padding=<span class="hljs-string">&#x27;same&#x27;</span>)(x)
+
+autoencoder = models.Model(input_img, decoded)
+autoencoder.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>)
+
+<span class="hljs-comment"># 加载数据并添加噪声</span>
+(x_train, _), (x_test, _) = tf.keras.datasets.mnist.load_data()
+x_train = x_train.astype(<span class="hljs-string">&#x27;float32&#x27;</span>) / <span class="hljs-number">255.</span>
+x_test = x_test.astype(<span class="hljs-string">&#x27;float32&#x27;</span>) / <span class="hljs-number">255.</span>
+x_train = np.reshape(x_train, (<span class="hljs-built_in">len</span>(x_train), <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>))
+x_test = np.reshape(x_test, (<span class="hljs-built_in">len</span>(x_test), <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>))
+
+noise_factor = <span class="hljs-number">0.5</span>
+x_train_noisy = x_train + noise_factor * np.random.normal(loc=<span class="hljs-number">0.0</span>, scale=<span class="hljs-number">1.0</span>, size=x_train.shape)
+x_test_noisy = x_test + noise_factor * np.random.normal(loc=<span class="hljs-number">0.0</span>, scale=<span class="hljs-number">1.0</span>, size=x_test.shape)
+x_train_noisy = np.clip(x_train_noisy, <span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>)
+x_test_noisy = np.clip(x_test_noisy, <span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>)
+
+<span class="hljs-comment"># 训练自编码器</span>
+autoencoder.fit(x_train_noisy, x_train,
+                epochs=<span class="hljs-number">50</span>,
+                batch_size=<span class="hljs-number">256</span>,
+                shuffle=<span class="hljs-literal">True</span>,
+                validation_data=(x_test_noisy, x_test))
+
+<span class="hljs-comment"># 预测</span>
+decoded_imgs = autoencoder.predict(x_test_noisy)</code></pre></div>
 
                 
               </div>
@@ -300,6 +503,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AI/" class="print-no-link">#AI</a>
+      
+    </div>
   
 </div>
 
@@ -353,6 +563,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/05/31/%E7%BD%91%E6%98%93Three-js%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BC%81%E4%B8%9A%E5%AE%9E%E6%88%98WEBGL%E8%AF%BE/" title="网易Three.js可视化企业实战WEBGL课2024">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">网易Three.js可视化企业实战WEBGL课2024</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -423,9 +639,6 @@
 
   
 
-
-
-  
 
 
 
@@ -574,44 +787,6 @@
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
 
 
   

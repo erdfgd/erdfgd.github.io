@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/about/avatar-icon.jpeg">
+  <link rel="icon" href="/images/about/avatar-icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tan ChuYang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Java 工程的框架设计与优化以及消息队列的设计与优化是确保应用程序高效、可靠和可扩展的关键。本文将详细探讨这两个方面的内容，从设计理念到优化策略，力求提供全面的指导。  “夏のke”》3w ukoou com  Java 工程框架设计分层架构 分层架构是一种常见的架构模式，通过将应用程序分解为多个层次，每个层次负责不同的功能，从而提高系统的可维护性和可扩展性。典型的分层架构包括表示层（UI 层）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024 Java 高分面试宝典 一站式搞定技术面&amp;项目面">
+<meta property="og:url" content="http://example.com/2024/06/21/2024-Java-%E9%AB%98%E5%88%86%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E4%B8%80%E7%AB%99%E5%BC%8F%E6%90%9E%E5%AE%9A%E6%8A%80%E6%9C%AF%E9%9D%A2-%E9%A1%B9%E7%9B%AE%E9%9D%A2/index.html">
+<meta property="og:site_name" content="羊小羊的博客">
+<meta property="og:description" content="Java 工程的框架设计与优化以及消息队列的设计与优化是确保应用程序高效、可靠和可扩展的关键。本文将详细探讨这两个方面的内容，从设计理念到优化策略，力求提供全面的指导。  “夏のke”》3w ukoou com  Java 工程框架设计分层架构 分层架构是一种常见的架构模式，通过将应用程序分解为多个层次，每个层次负责不同的功能，从而提高系统的可维护性和可扩展性。典型的分层架构包括表示层（UI 层）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-21T14:35:26.000Z">
+<meta property="article:modified_time" content="2024-06-21T15:44:11.349Z">
+<meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2024 Java 高分面试宝典 一站式搞定技术面&amp;项目面 - 羊小羊的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>羊小羊的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于羊小羊</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background-images/orange.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2024 Java 高分面试宝典 一站式搞定技术面&amp;项目面"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-21 22:35" pubdate>
+          2024年6月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2024 Java 高分面试宝典 一站式搞定技术面&amp;项目面</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年6月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Java 工程的框架设计与优化以及消息队列的设计与优化是确保应用程序高效、可靠和可扩展的关键。本文将详细探讨这两个方面的内容，从设计理念到优化策略，力求提供全面的指导。</p>
+<blockquote>
+<p>“夏のke”》3w ukoou com</p>
+</blockquote>
+<h2 id="Java-工程框架设计"><a href="#Java-工程框架设计" class="headerlink" title="Java 工程框架设计"></a>Java 工程框架设计</h2><p><strong>分层架构</strong></p>
+<p>分层架构是一种常见的架构模式，通过将应用程序分解为多个层次，每个层次负责不同的功能，从而提高系统的可维护性和可扩展性。典型的分层架构包括表示层（UI 层）、业务逻辑层、数据访问层和数据库层。</p>
+<ul>
+<li><strong>表示层</strong>：负责处理用户的输入和输出。</li>
+<li><strong>业务逻辑层</strong>：包含核心业务逻辑。</li>
+<li><strong>数据访问层</strong>：负责与数据库进行交互。</li>
+<li><strong>数据库层</strong>：存储数据。<br><strong>模块化设计</strong></li>
+</ul>
+<p>模块化设计强调将系统划分为独立的模块，每个模块负责特定的功能。这种设计方法有助于提高代码的复用性和维护性。</p>
+<ul>
+<li><strong>单一职责原则</strong>：每个模块只负责一个特定的功能。</li>
+<li><strong>低耦合高内聚</strong>：模块之间的依赖关系尽量减少，每个模块内部功能紧密相关。</li>
+</ul>
+<p><strong>微服务架构</strong></p>
+<p>微服务架构是一种将应用程序拆分为一系列小而独立的服务的架构模式，每个服务负责特定的业务功能，可以独立部署和扩展。</p>
+<ul>
+<li><strong>服务独立性</strong>：每个服务可以独立开发、部署和扩展。</li>
+<li><strong>接口通信</strong>：服务之间通过轻量级的通信机制（如 REST 或消息队列）进行交互。</li>
+<li><strong>数据独立性</strong>：每个服务拥有自己的数据库，避免数据共享带来的问题。</li>
+</ul>
+<p><strong>依赖注入</strong></p>
+<p>依赖注入是一种设计模式，用于将对象的依赖关系通过外部注入的方式实现，而不是在对象内部进行实例化。常见的依赖注入框架包括 Spring 和 Google Guice。</p>
+<ul>
+<li><strong>构造器注入</strong>：通过构造函数注入依赖。</li>
+<li><strong>属性注入</strong>：通过对象的属性注入依赖。</li>
+<li><strong>接口注入</strong>：通过接口方法注入依赖。</li>
+</ul>
+<h2 id="Java-工程优化"><a href="#Java-工程优化" class="headerlink" title="Java 工程优化"></a>Java 工程优化</h2><p><strong>代码优化</strong></p>
+<p>代码优化的目的是提高代码的可读性、可维护性和性能。</p>
+<ul>
+<li><strong>重构代码</strong>：消除重复代码，提高代码复用性。</li>
+<li><strong>遵循编码规范</strong>：使用一致的编码风格，增加代码可读性。</li>
+<li><strong>使用设计模式</strong>：合理使用设计模式，提高代码的灵活性和可扩展性。</li>
+</ul>
+<p><strong>性能优化</strong></p>
+<p>性能优化包括提高系统响应速度和处理能力。</p>
+<ul>
+<li><strong>缓存机制</strong>：使用缓存减少数据库访问，提高响应速度。</li>
+<li><strong>异步处理</strong>：使用异步处理提高系统的吞吐量。</li>
+<li><strong>优化查询</strong>：优化数据库查询语句，减少查询时间。</li>
+</ul>
+<p><strong>内存管理</strong></p>
+<p>内存管理是 Java 应用程序性能优化的重要方面。</p>
+<ul>
+<li><strong>对象池</strong>：重用对象，减少对象创建和销毁的开销。</li>
+<li><strong>垃圾回收优化</strong>：调整垃圾回收策略，减少 GC 停顿时间。</li>
+<li><strong>内存泄漏检测</strong>：使用工具检测和修复内存泄漏。</li>
+</ul>
+<h2 id="消息队列设计"><a href="#消息队列设计" class="headerlink" title="消息队列设计"></a>消息队列设计</h2><p><strong>消息队列简介</strong></p>
+<p>消息队列是一种用于在分布式系统中实现异步通信的机制，通过消息的发送和接收，实现不同系统或组件之间的解耦。</p>
+<p><strong>消息队列的基本概念</strong></p>
+<ul>
+<li><strong>生产者</strong>：发送消息的实体。</li>
+<li><strong>消费者</strong>：接收消息的实体。</li>
+<li><strong>消息</strong>：生产者发送到队列并由消费者接收的数据包。</li>
+<li><strong>队列</strong>：存储消息的缓冲区。</li>
+</ul>
+<p><strong>消息队列的选择</strong></p>
+<p>常见的消息队列包括 RabbitMQ、Kafka、ActiveMQ 和 Redis 等。选择合适的消息队列需要考虑以下因素：</p>
+<ul>
+<li><strong>吞吐量</strong>：系统需要处理的消息数量。</li>
+<li><strong>延迟</strong>：消息传递的速度要求。</li>
+<li><strong>持久性</strong>：消息是否需要持久化存储。</li>
+<li><strong>扩展性</strong>：系统的扩展能力和灵活性。</li>
+</ul>
+<p><strong>消息队列的设计模式</strong></p>
+<ul>
+<li><strong>点对点模式</strong>：一个消息只能被一个消费者消费。</li>
+<li><strong>发布&#x2F;订阅模式</strong>：一个消息可以被多个消费者消费。</li>
+</ul>
+<h2 id="消息队列优化"><a href="#消息队列优化" class="headerlink" title="消息队列优化"></a>消息队列优化</h2><p><strong>消息持久化</strong></p>
+<p>消息持久化是确保消息在系统故障时不丢失的重要机制。常见的持久化方法包括：</p>
+<ul>
+<li><strong>磁盘存储</strong>：将消息存储在磁盘上，保证消息在系统重启后依然存在。</li>
+<li><strong>数据库存储</strong>：将消息存储在数据库中，利用数据库的事务机制保证消息的可靠性。</li>
+</ul>
+<p><strong>消息顺序性</strong></p>
+<p>在某些应用场景中，保证消息的顺序性是非常重要的。例如，在订单处理系统中，需要保证订单的创建和支付消息按顺序处理。可以通过以下方法实现：</p>
+<ul>
+<li><strong>单一队列</strong>：使用单一队列保证消息按顺序处理。</li>
+<li><strong>分区机制</strong>：通过对消息进行分区，每个分区内的消息按顺序处理。</li>
+</ul>
+<p><strong>消息可靠性</strong></p>
+<p>消息可靠性是确保消息不丢失、不重复的重要特性。可以通过以下策略实现：</p>
+<ul>
+<li><strong>确认机制</strong>：生产者和消费者在发送和接收消息时进行确认，确保消息成功处理。</li>
+<li><strong>重试机制</strong>：在消息处理失败时进行重试，确保消息最终处理成功。</li>
+</ul>
+<p><strong>消息队列的扩展性</strong></p>
+<p>消息队列的扩展性是确保系统能处理不断增长的消息量的重要特性。可以通过以下方法实现：</p>
+<ul>
+<li><strong>分布式部署</strong>：将消息队列部署在多个节点上，实现负载均衡。</li>
+<li><strong>分区机制</strong>：将消息按一定规则分配到不同的分区中，增加系统的并发处理能力。</li>
+</ul>
+<h2 id="Java-工程开发框架：Spring-Cloud、Redis-教程"><a href="#Java-工程开发框架：Spring-Cloud、Redis-教程" class="headerlink" title="Java 工程开发框架：Spring Cloud、Redis 教程"></a>Java 工程开发框架：Spring Cloud、Redis 教程</h2><p><strong>Spring Cloud 简介</strong></p>
+<p>Spring Cloud 是一系列框架的集合，用于构建分布式系统中的常见模式，例如配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理。</p>
+<ul>
+<li><strong>服务注册与发现</strong>：Eureka、Consul</li>
+<li><strong>分布式配置管理</strong>：Spring Cloud Config</li>
+<li><strong>客户端负载均衡</strong>：Ribbon</li>
+<li><strong>断路器</strong>：Hystrix</li>
+<li><strong>消息总线</strong>：Spring Cloud Bus</li>
+</ul>
+<p><strong>Spring Cloud 使用示例</strong></p>
+<ol>
+<li><strong>创建服务注册中心</strong>：</li>
+</ol>
+<div class="code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableEurekaServer</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EurekaServerApplication</span> &#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+        SpringApplication.run(EurekaServerApplication.class, args);
+    &#125;
+&#125;</code></pre></div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/java/" class="print-no-link">#java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2024 Java 高分面试宝典 一站式搞定技术面&amp;项目面</div>
+      <div>http://example.com/2024/06/21/2024-Java-高分面试宝典-一站式搞定技术面-项目面/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tan ChuYang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/06/21/MQ%E5%A4%A7%E7%89%9B%E6%88%90%E9%95%BF%E8%AF%BE-%E4%BB%8E0%E5%88%B01%E6%89%8B%E5%86%99%E5%88%86%E5%B8%83%E5%BC%8F%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6-1/" title="MQ大牛成长课--从0到1手写分布式消息队列中间件">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MQ大牛成长课--从0到1手写分布式消息队列中间件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/17/SpringCloud-Netty%E9%9B%86%E7%BE%A4%E5%AE%9E%E6%88%98%E5%8D%83%E4%B8%87%E7%BA%A7-IM%E7%B3%BB%E7%BB%9F-1/" title="SpringCloud+Netty集群实战千万级 IM系统">
+                        <span class="hidden-mobile">SpringCloud+Netty集群实战千万级 IM系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

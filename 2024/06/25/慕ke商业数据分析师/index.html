@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/about/avatar-icon.jpeg">
+  <link rel="icon" href="/images/about/avatar-icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tan ChuYang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="bz,zh 1. 数据分析概述数据分析是通过统计和逻辑方法对数据进行检验和转换，以揭示有用信息、得出结论并支持决策的过程。数据分析的主要步骤包括数据获取、数据清洗、数据探索性分析（EDA）、数据建模和数据可视化。 2. 数据获取与准备数据获取是数据分析的第一步，通常涉及从各种来源（如数据库、API、文件等）收集数据。数据准备包括数据的整理、格式化和存储。 数据获取  数据库：使用SQL查询从数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="慕ke商业数据分析师">
+<meta property="og:url" content="http://example.com/2024/06/25/%E6%85%95ke%E5%95%86%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/index.html">
+<meta property="og:site_name" content="羊小羊的博客">
+<meta property="og:description" content="bz,zh 1. 数据分析概述数据分析是通过统计和逻辑方法对数据进行检验和转换，以揭示有用信息、得出结论并支持决策的过程。数据分析的主要步骤包括数据获取、数据清洗、数据探索性分析（EDA）、数据建模和数据可视化。 2. 数据获取与准备数据获取是数据分析的第一步，通常涉及从各种来源（如数据库、API、文件等）收集数据。数据准备包括数据的整理、格式化和存储。 数据获取  数据库：使用SQL查询从数据库">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-25T13:49:46.000Z">
+<meta property="article:modified_time" content="2024-06-26T09:37:00.011Z">
+<meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>慕ke商业数据分析师 - 羊小羊的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>羊小羊的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于羊小羊</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background-images/orange.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="慕ke商业数据分析师"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-25 21:49" pubdate>
+          2024年6月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">慕ke商业数据分析师</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年6月26日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>bz,zh</p>
+<h2 id="1-数据分析概述"><a href="#1-数据分析概述" class="headerlink" title="1. 数据分析概述"></a>1. 数据分析概述</h2><p>数据分析是通过统计和逻辑方法对数据进行检验和转换，以揭示有用信息、得出结论并支持决策的过程。数据分析的主要步骤包括数据获取、数据清洗、数据探索性分析（EDA）、数据建模和数据可视化。</p>
+<h2 id="2-数据获取与准备"><a href="#2-数据获取与准备" class="headerlink" title="2. 数据获取与准备"></a>2. 数据获取与准备</h2><p>数据获取是数据分析的第一步，通常涉及从各种来源（如数据库、API、文件等）收集数据。数据准备包括数据的整理、格式化和存储。</p>
+<p><strong>数据获取</strong></p>
+<ul>
+<li><strong>数据库</strong>：使用SQL查询从数据库中提取数据。</li>
+<li><strong>API</strong>：通过编写脚本调用API获取数据。</li>
+<li><strong>文件</strong>：从CSV、Excel、JSON等文件中读取数据。</li>
+</ul>
+<p><strong>数据准备</strong></p>
+<ul>
+<li><strong>格式化</strong>：确保数据格式一致，例如日期格式、数值格式等。</li>
+<li><strong>存储</strong>：将数据存储在合适的存储介质中，如本地文件系统或云存储。</li>
+</ul>
+<h2 id="3-数据清洗"><a href="#3-数据清洗" class="headerlink" title="3. 数据清洗"></a>3. 数据清洗</h2><p>数据清洗是确保数据质量的关键步骤，主要包括处理缺失值、重复数据和异常值。</p>
+<p><strong>处理缺失值</strong></p>
+<ul>
+<li><strong>删除缺失值</strong>：对于缺失值较多的列，可以考虑删除。</li>
+<li><strong>填充缺失值</strong>：使用均值、中位数或众数填充缺失值。</li>
+</ul>
+<p><strong>处理重复数据</strong></p>
+<ul>
+<li><strong>删除重复值</strong>：在数据中删除完全重复的记录。</li>
+</ul>
+<p><strong>处理异常值</strong></p>
+<ul>
+<li><strong>识别异常值</strong>：通过统计方法识别异常值。</li>
+<li><strong>处理异常值</strong>：可以选择删除异常值或对其进行修正。</li>
+</ul>
+<h2 id="4-数据探索性分析-EDA"><a href="#4-数据探索性分析-EDA" class="headerlink" title="4. 数据探索性分析 (EDA)"></a>4. 数据探索性分析 (EDA)</h2><p>数据探索性分析旨在通过统计图表和摘要统计量了解数据的特征和分布。</p>
+<p><strong>描述性统计</strong></p>
+<ul>
+<li><strong>均值、方差和标准差</strong>：这些统计量帮助我们了解数据的集中趋势和离散程度。</li>
+<li><strong>分位数</strong>：如四分位数、百分位数，帮助了解数据的分布情况。</li>
+</ul>
+<p><strong>可视化方法</strong></p>
+<ul>
+<li><strong>直方图</strong>：显示数据分布。</li>
+<li><strong>盒图</strong>：显示数据的集中趋势和离散程度，并识别异常值。</li>
+<li><strong>散点图</strong>：显示两个变量之间的关系。</li>
+</ul>
+<h2 id="5-数据可视化技术"><a href="#5-数据可视化技术" class="headerlink" title="5. 数据可视化技术"></a>5. 数据可视化技术</h2><p>数据可视化是将数据转换为图表和图形的过程，以便更容易理解和分析数据。</p>
+<p><strong>可视化工具</strong></p>
+<ul>
+<li><strong>Matplotlib</strong>：Python最常用的绘图库，适用于各种基本图表。</li>
+<li><strong>Seaborn</strong>：基于Matplotlib，提供更高级的统计图表。</li>
+<li><strong>Plotly</strong>：交互式绘图库，适用于复杂的可视化需求。</li>
+</ul>
+<p><strong>常用图表类型</strong></p>
+<ul>
+<li><strong>折线图</strong>：适用于展示随时间变化的数据。</li>
+<li><strong>柱状图</strong>：适用于比较不同组的数据。</li>
+<li><strong>饼图</strong>：适用于展示数据的组成部分。</li>
+<li><strong>热力图</strong>：适用于显示数据的相关性。</li>
+</ul>
+<p><strong># 示例代码：使用Matplotlib绘制折线图</strong></p>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment"># 示例数据</span>
+months = [<span class="hljs-string">&#x27;Jan&#x27;</span>, <span class="hljs-string">&#x27;Feb&#x27;</span>, <span class="hljs-string">&#x27;Mar&#x27;</span>, <span class="hljs-string">&#x27;Apr&#x27;</span>, <span class="hljs-string">&#x27;May&#x27;</span>]
+values = [<span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>]
+
+plt.plot(months, values)
+plt.title(<span class="hljs-string">&#x27;Monthly Data&#x27;</span>)
+plt.xlabel(<span class="hljs-string">&#x27;Month&#x27;</span>)
+plt.ylabel(<span class="hljs-string">&#x27;Value&#x27;</span>)
+plt.show()</code></pre></div>
+
+<h2 id="6-数据分析策略"><a href="#6-数据分析策略" class="headerlink" title="6. 数据分析策略"></a>6. 数据分析策略</h2><p>数据分析策略是指导数据分析过程的方法和步骤。</p>
+<p><strong>明确分析目标</strong></p>
+<ul>
+<li><strong>问题定义</strong>：明确需要解决的问题或需要回答的业务问题。</li>
+<li><strong>指标选择</strong>：选择能够反映问题和目标的关键指标。</li>
+</ul>
+<p><strong>数据建模</strong></p>
+<ul>
+<li><strong>选择模型</strong>：根据问题选择合适的统计或机器学习模型。</li>
+<li><strong>模型训练</strong>：使用训练数据训练模型。</li>
+<li><strong>模型评估</strong>：使用测试数据评估模型性能。</li>
+</ul>
+<p><strong>结果解释与沟通</strong></p>
+<ul>
+<li><strong>结果解读</strong>：对分析结果进行解释，确保其具有业务意义。</li>
+<li><strong>报告编写</strong>：编写清晰的分析报告，包含可视化图表和结论。</li>
+<li><strong>沟通策略</strong>：与利益相关者沟通分析结果和建议。</li>
+</ul>
+<h2 id="7-案例分析"><a href="#7-案例分析" class="headerlink" title="7. 案例分析"></a>7. 案例分析</h2><p><strong>案例一：销售数据分析</strong></p>
+<p><strong>目标</strong>：分析某产品的销售趋势，找出影响销售的关键因素。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li><strong>数据获取</strong>：从数据库中提取销售数据。</li>
+<li><strong>数据清洗</strong>：处理缺失值和异常值。</li>
+<li><strong>数据探索</strong>：使用描述性统计和可视化方法了解数据分布。</li>
+<li><strong>数据建模</strong>：构建回归模型分析影响销售的因素。</li>
+<li><strong>结果解读</strong>：解释回归模型结果，得出结论并提出建议。</li>
+</ol>
+<p><strong>案例二：客户流失分析</strong></p>
+<p><strong>目标</strong>：分析客户流失原因，提出客户保留策略。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li><strong>数据获取</strong>：从CRM系统中提取客户数据。</li>
+<li><strong>数据清洗</strong>：处理缺失值和异常值。</li>
+<li><strong>数据探索</strong>：使用描述性统计和可视化方法了解数据分布。</li>
+<li><strong>数据建模</strong>：构建分类模型预测客户流失风险。</li>
+<li><strong>结果解读</strong>：解释分类模型结果，提出客户保留建议。</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="print-no-link">#数据分析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>慕ke商业数据分析师</div>
+      <div>http://example.com/2024/06/25/慕ke商业数据分析师/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tan ChuYang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/06/25/%E6%85%95k%E4%BD%93%E7%B3%BB-%E7%89%A9%E8%81%94%E7%BD%91-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E5%B8%88/" title="慕k体系-物联网/嵌入式工程师">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">慕k体系-物联网/嵌入式工程师</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/21/2024%EF%BC%8CPython%E7%88%AC%E8%99%AB%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%A4%9A%E9%A2%86%E5%9F%9F%E5%AE%9E%E6%88%98-1/" title="2024，Python爬虫系统入门与多领域实战">
+                        <span class="hidden-mobile">2024，Python爬虫系统入门与多领域实战</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

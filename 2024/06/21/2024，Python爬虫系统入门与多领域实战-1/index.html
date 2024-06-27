@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/about/avatar-icon.jpeg">
+  <link rel="icon" href="/images/about/avatar-icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tan ChuYang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在现代网络数据采集领域，Selenium和Scrapy是两种常用的工具。Selenium主要用于浏览器自动化测试和处理动态页面，而Scrapy则是一个强大的爬虫框架，适用于大规模的数据抓取。本文将介绍如何使用Selenium进行Web自动化，并展示如何开发Scrapy项目爬虫，最后还将探讨两者结合使用的实战案例。 Selenium实战Selenium简介Selenium是一个用于Web应用程序自动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024，Python爬虫系统入门与多领域实战">
+<meta property="og:url" content="http://example.com/2024/06/21/2024%EF%BC%8CPython%E7%88%AC%E8%99%AB%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%A4%9A%E9%A2%86%E5%9F%9F%E5%AE%9E%E6%88%98-1/index.html">
+<meta property="og:site_name" content="羊小羊的博客">
+<meta property="og:description" content="在现代网络数据采集领域，Selenium和Scrapy是两种常用的工具。Selenium主要用于浏览器自动化测试和处理动态页面，而Scrapy则是一个强大的爬虫框架，适用于大规模的数据抓取。本文将介绍如何使用Selenium进行Web自动化，并展示如何开发Scrapy项目爬虫，最后还将探讨两者结合使用的实战案例。 Selenium实战Selenium简介Selenium是一个用于Web应用程序自动">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-21T15:50:28.000Z">
+<meta property="article:modified_time" content="2024-06-21T15:50:58.168Z">
+<meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="爬虫">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2024，Python爬虫系统入门与多领域实战 - 羊小羊的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>羊小羊的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于羊小羊</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background-images/orange.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2024，Python爬虫系统入门与多领域实战"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-21 23:50" pubdate>
+          2024年6月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          807 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2024，Python爬虫系统入门与多领域实战</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年6月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在现代网络数据采集领域，Selenium和Scrapy是两种常用的工具。Selenium主要用于浏览器自动化测试和处理动态页面，而Scrapy则是一个强大的爬虫框架，适用于大规模的数据抓取。本文将介绍如何使用Selenium进行Web自动化，并展示如何开发Scrapy项目爬虫，最后还将探讨两者结合使用的实战案例。</p>
+<h2 id="Selenium实战"><a href="#Selenium实战" class="headerlink" title="Selenium实战"></a>Selenium实战</h2><h3 id="Selenium简介"><a href="#Selenium简介" class="headerlink" title="Selenium简介"></a>Selenium简介</h3><p>Selenium是一个用于Web应用程序自动化测试的工具，它提供了一系列API来模拟用户操作，如点击、输入、导航等。Selenium支持多种浏览器，如Chrome、Firefox、Safari等，可以用于测试和数据抓取。</p>
+<h3 id="安装Selenium"><a href="#安装Selenium" class="headerlink" title="安装Selenium"></a>安装Selenium</h3><ol>
+<li><p>安装Selenium库：</p>
+ <div class="code-wrapper"><pre><code class="hljs bash">pip install selenium</code></pre></div>
+</li>
+<li><p>下载浏览器驱动程序，以Chrome为例：</p>
+<ul>
+<li>下载ChromeDriver：<a target="_blank" rel="noopener" href="https://sites.google.com/a/chromium.org/chromedriver/downloads">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></li>
+<li>将ChromeDriver添加到系统PATH中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="使用Selenium进行Web自动化"><a href="#使用Selenium进行Web自动化" class="headerlink" title="使用Selenium进行Web自动化"></a>使用Selenium进行Web自动化</h3><p>以下是一个使用Selenium打开浏览器、访问页面并进行简单操作的示例：</p>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver
+<span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By
+<span class="hljs-keyword">from</span> selenium.webdriver.common.keys <span class="hljs-keyword">import</span> Keys
+
+<span class="hljs-comment"># 创建浏览器对象</span>
+driver = webdriver.Chrome()
+
+<span class="hljs-comment"># 打开页面</span>
+driver.get(<span class="hljs-string">&quot;https://www.example.com&quot;</span>)
+
+<span class="hljs-comment"># 查找元素并进行操作</span>
+search_box = driver.find_element(By.NAME, <span class="hljs-string">&quot;q&quot;</span>)
+search_box.send_keys(<span class="hljs-string">&quot;Selenium&quot;</span>)
+search_box.send_keys(Keys.RETURN)
+
+<span class="hljs-comment"># 等待结果加载</span>
+driver.implicitly_wait(<span class="hljs-number">10</span>)
+
+<span class="hljs-comment"># 获取结果</span>
+results = driver.find_elements(By.CSS_SELECTOR, <span class="hljs-string">&quot;h3&quot;</span>)
+<span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> results:
+    <span class="hljs-built_in">print</span>(result.text)
+
+<span class="hljs-comment"># 关闭浏览器</span>
+driver.quit()</code></pre></div>
+
+<h3 id="Selenium高级用法"><a href="#Selenium高级用法" class="headerlink" title="Selenium高级用法"></a>Selenium高级用法</h3><h4 id="处理动态页面"><a href="#处理动态页面" class="headerlink" title="处理动态页面"></a>处理动态页面</h4><p>很多现代网页是动态加载内容的，Selenium可以很好地处理这些情况。</p>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.support.ui <span class="hljs-keyword">import</span> WebDriverWait
+<span class="hljs-keyword">from</span> selenium.webdriver.support <span class="hljs-keyword">import</span> expected_conditions <span class="hljs-keyword">as</span> EC
+
+<span class="hljs-comment"># 等待某个元素加载完成</span>
+element = WebDriverWait(driver, <span class="hljs-number">10</span>).until(
+    EC.presence_of_element_located((By.ID, <span class="hljs-string">&quot;myDynamicElement&quot;</span>))
+)</code></pre></div>
+
+<h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><p>Selenium支持网页截图功能，可以用于记录测试结果或抓取页面截图。</p>
+<div class="code-wrapper"><pre><code class="hljs python">driver.save_screenshot(<span class="hljs-string">&quot;screenshot.png&quot;</span>)</code></pre></div>
+
+<h4 id="处理弹窗"><a href="#处理弹窗" class="headerlink" title="处理弹窗"></a>处理弹窗</h4><div class="code-wrapper"><pre><code class="hljs python">alert = driver.switch_to.alert
+alert.accept()</code></pre></div>
+
+<h2 id="开发Scrapy项目爬虫"><a href="#开发Scrapy项目爬虫" class="headerlink" title="开发Scrapy项目爬虫"></a>开发Scrapy项目爬虫</h2><h3 id="Scrapy简介"><a href="#Scrapy简介" class="headerlink" title="Scrapy简介"></a>Scrapy简介</h3><p>Scrapy是一个用于提取网站数据的应用框架，提供了强大的数据抓取、处理和存储功能。Scrapy支持并发请求，可以高效地抓取大量网页数据。</p>
+<h3 id="安装Scrapy"><a href="#安装Scrapy" class="headerlink" title="安装Scrapy"></a>安装Scrapy</h3><ol>
+<li><p>安装Scrapy：</p>
+ <div class="code-wrapper"><pre><code class="hljs bash">pip install scrapy</code></pre></div></li>
+</ol>
+<h3 id="创建Scrapy项目"><a href="#创建Scrapy项目" class="headerlink" title="创建Scrapy项目"></a>创建Scrapy项目</h3><p>创建一个新的Scrapy项目：</p>
+<div class="code-wrapper"><pre><code class="hljs bash">scrapy startproject myproject</code></pre></div>
+
+<h3 id="Scrapy爬虫开发"><a href="#Scrapy爬虫开发" class="headerlink" title="Scrapy爬虫开发"></a>Scrapy爬虫开发</h3><ol>
+<li><p>生成一个新的爬虫：</p>
+ <div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> myproject
+scrapy genspider example example.com</code></pre></div>
+</li>
+<li><p>编辑生成的爬虫文件 <code>example.py</code>：</p>
+ <div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> scrapy
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ExampleSpider</span>(scrapy.Spider):
+    name = <span class="hljs-string">&quot;example&quot;</span>
+    allowed_domains = [<span class="hljs-string">&quot;example.com&quot;</span>]
+    start_urls = [
+        <span class="hljs-string">&#x27;http://www.example.com/&#x27;</span>,
+    ]
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):
+        <span class="hljs-keyword">for</span> title <span class="hljs-keyword">in</span> response.css(<span class="hljs-string">&#x27;h3::text&#x27;</span>).getall():
+            <span class="hljs-keyword">yield</span> &#123;<span class="hljs-string">&#x27;title&#x27;</span>: title&#125;</code></pre></div>
+</li>
+<li><p>运行爬虫：</p>
+ <div class="code-wrapper"><pre><code class="hljs bash">scrapy crawl example</code></pre></div></li>
+</ol>
+<h3 id="Scrapy数据存储"><a href="#Scrapy数据存储" class="headerlink" title="Scrapy数据存储"></a>Scrapy数据存储</h3><p>Scrapy支持多种数据存储方式，如JSON、CSV、数据库等。</p>
+<ol>
+<li><p>将数据存储为JSON：</p>
+ <div class="code-wrapper"><pre><code class="hljs bash">scrapy crawl example -o output.json</code></pre></div>
+</li>
+<li><p>将数据存储到数据库：</p>
+<p> 编辑 <code>pipelines.py</code> 文件：</p>
+ <div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sqlite3
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyprojectPipeline</span>:
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">open_spider</span>(<span class="hljs-params">self, spider</span>):
+        self.conn = sqlite3.connect(<span class="hljs-string">&#x27;example.db&#x27;</span>)
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(<span class="hljs-string">&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">            CREATE TABLE IF NOT EXISTS titles (</span>
+<span class="hljs-string">                id INTEGER PRIMARY KEY AUTOINCREMENT,</span>
+<span class="hljs-string">                title TEXT</span>
+<span class="hljs-string">            )</span>
+<span class="hljs-string">        &#x27;&#x27;&#x27;</span>)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">close_spider</span>(<span class="hljs-params">self, spider</span>):
+        self.conn.commit()
+        self.conn.close()
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">process_item</span>(<span class="hljs-params">self, item, spider</span>):
+        self.cursor.execute(<span class="hljs-string">&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">            INSERT INTO titles (title) VALUES (?)</span>
+<span class="hljs-string">        &#x27;&#x27;&#x27;</span>, (item[<span class="hljs-string">&#x27;title&#x27;</span>],))
+        <span class="hljs-keyword">return</span> item</code></pre></div></li>
+</ol>
+<h2 id="Selenium与Scrapy结合"><a href="#Selenium与Scrapy结合" class="headerlink" title="Selenium与Scrapy结合"></a>Selenium与Scrapy结合</h2><p>在某些情况下，我们可能需要处理动态加载的数据，这时可以结合使用Selenium和Scrapy。</p>
+<ol>
+<li><p>在Scrapy爬虫中使用Selenium：</p>
+ <div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> Spider
+<span class="hljs-keyword">from</span> scrapy.http <span class="hljs-keyword">import</span> HtmlResponse
+<span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">SeleniumSpider</span>(<span class="hljs-title class_ inherited__">Spider</span>):
+    name = <span class="hljs-string">&quot;selenium_spider&quot;</span>
+    allowed_domains = [<span class="hljs-string">&quot;example.com&quot;</span>]
+    start_urls = [
+        <span class="hljs-string">&#x27;http://www.example.com/&#x27;</span>,
+    ]
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        self.driver = webdriver.Chrome()
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):
+        self.driver.get(response.url)
+        body = self.driver.page_source
+        response = HtmlResponse(url=self.driver.current_url, body=body, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)
+        <span class="hljs-keyword">for</span> title <span class="hljs-keyword">in</span> response.css(<span class="hljs-string">&#x27;h3::text&#x27;</span>).getall():
+            <span class="hljs-keyword">yield</span> &#123;<span class="hljs-string">&#x27;title&#x27;</span>: title&#125;
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">closed</span>(<span class="hljs-params">self, reason</span>):
+        self.driver.quit()</code></pre></div></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python/" class="print-no-link">#python</a>
+      
+        <a href="/tags/%E7%88%AC%E8%99%AB/" class="print-no-link">#爬虫</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2024，Python爬虫系统入门与多领域实战</div>
+      <div>http://example.com/2024/06/21/2024，Python爬虫系统入门与多领域实战-1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tan ChuYang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/06/25/%E6%85%95ke%E5%95%86%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/" title="慕ke商业数据分析师">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">慕ke商业数据分析师</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/21/SpringCloud-Netty%E9%9B%86%E7%BE%A4%E5%AE%9E%E6%88%98%E5%8D%83%E4%B8%87%E7%BA%A7-IM%E7%B3%BB%E7%BB%9F-2/" title="SpringCloud+Netty集群实战千万级 IM系统">
+                        <span class="hidden-mobile">SpringCloud+Netty集群实战千万级 IM系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

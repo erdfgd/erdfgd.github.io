@@ -1,0 +1,735 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/about/avatar-icon.jpeg">
+  <link rel="icon" href="/images/about/avatar-icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tan ChuYang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 嵌入式系统概述嵌入式系统是一种专用计算机系统，作为设备或系统的一部分，用于特定任务的控制。嵌入式系统通常具有以下特征：  专用性：专门为特定功能设计。 实时性：对时间要求严格。 资源受限：计算能力和存储容量有限。  常见的嵌入式系统包括家电、汽车电子、医疗设备、工业控制系统等。 2. 嵌入式系统硬件基础微控制器（MCU） 微控制器是嵌入式系统的核心组件，通常集成了CPU、内存、I&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="慕k体系-物联网&#x2F;嵌入式工程师">
+<meta property="og:url" content="http://example.com/2024/06/25/%E6%85%95k%E4%BD%93%E7%B3%BB-%E7%89%A9%E8%81%94%E7%BD%91-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E5%B8%88/index.html">
+<meta property="og:site_name" content="羊小羊的博客">
+<meta property="og:description" content="1. 嵌入式系统概述嵌入式系统是一种专用计算机系统，作为设备或系统的一部分，用于特定任务的控制。嵌入式系统通常具有以下特征：  专用性：专门为特定功能设计。 实时性：对时间要求严格。 资源受限：计算能力和存储容量有限。  常见的嵌入式系统包括家电、汽车电子、医疗设备、工业控制系统等。 2. 嵌入式系统硬件基础微控制器（MCU） 微控制器是嵌入式系统的核心组件，通常集成了CPU、内存、I&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-25T14:08:49.000Z">
+<meta property="article:modified_time" content="2024-06-25T14:19:14.349Z">
+<meta property="article:author" content="Tan ChuYang">
+<meta property="article:tag" content="嵌入式">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>慕k体系-物联网/嵌入式工程师 - 羊小羊的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>羊小羊的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于羊小羊</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background-images/orange.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="慕k体系-物联网/嵌入式工程师"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-25 22:08" pubdate>
+          2024年6月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">慕k体系-物联网/嵌入式工程师</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年6月25日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-嵌入式系统概述"><a href="#1-嵌入式系统概述" class="headerlink" title="1. 嵌入式系统概述"></a>1. 嵌入式系统概述</h2><p>嵌入式系统是一种专用计算机系统，作为设备或系统的一部分，用于特定任务的控制。嵌入式系统通常具有以下特征：</p>
+<ul>
+<li><strong>专用性</strong>：专门为特定功能设计。</li>
+<li><strong>实时性</strong>：对时间要求严格。</li>
+<li><strong>资源受限</strong>：计算能力和存储容量有限。</li>
+</ul>
+<p>常见的嵌入式系统包括家电、汽车电子、医疗设备、工业控制系统等。</p>
+<h2 id="2-嵌入式系统硬件基础"><a href="#2-嵌入式系统硬件基础" class="headerlink" title="2. 嵌入式系统硬件基础"></a>2. 嵌入式系统硬件基础</h2><p><strong>微控制器（MCU）</strong></p>
+<p>微控制器是嵌入式系统的核心组件，通常集成了CPU、内存、I&#x2F;O端口、定时器等。</p>
+<ul>
+<li><strong>CPU</strong>：负责执行指令和处理数据。</li>
+<li><strong>内存</strong>：包括ROM（用于存储固件）和RAM（用于运行时数据存储）。</li>
+<li><strong>I&#x2F;O端口</strong>：用于连接外部设备，如传感器和执行器。</li>
+<li><strong>定时器</strong>：用于实现时间控制功能。</li>
+</ul>
+<p><strong>外设</strong></p>
+<p>外设是指与微控制器连接的各种硬件组件，如传感器、显示器、通信模块等。</p>
+<ul>
+<li><strong>传感器</strong>：用于采集外部环境数据，如温度、压力、光强等。</li>
+<li><strong>执行器</strong>：用于执行控制指令，如电机、继电器等。</li>
+<li><strong>通信模块</strong>：用于实现数据传输，如UART、SPI、I2C等。</li>
+</ul>
+<p><strong>电源管理</strong></p>
+<p>嵌入式系统通常需要高效的电源管理，以延长设备的电池寿命或保证设备的稳定运行。</p>
+<ul>
+<li><strong>电源模块</strong>：提供稳定的电源电压。</li>
+<li><strong>电池管理系统（BMS）</strong>：用于监控和管理电池的充放电过程。</li>
+</ul>
+<h2 id="3-嵌入式系统软件基础"><a href="#3-嵌入式系统软件基础" class="headerlink" title="3. 嵌入式系统软件基础"></a>3. 嵌入式系统软件基础</h2><p><strong>操作系统</strong></p>
+<p>嵌入式系统可以使用实时操作系统（RTOS）或无操作系统（裸机）。</p>
+<ul>
+<li><strong>RTOS</strong>：提供任务调度、内存管理、通信机制等功能，适用于复杂应用。</li>
+<li><strong>裸机</strong>：直接在硬件上运行应用程序，适用于简单应用。</li>
+</ul>
+<p><strong>固件</strong></p>
+<p>固件是嵌入式系统中运行的软件，通常存储在ROM中。固件负责初始化硬件、实现主要功能和处理外部事件。</p>
+<p><strong>驱动程序</strong></p>
+<p>驱动程序是连接硬件和软件的桥梁，用于控制和管理外设。驱动程序通常包括以下部分：</p>
+<ul>
+<li><strong>初始化</strong>：设置硬件寄存器和参数。</li>
+<li><strong>中断处理</strong>：处理外设产生的中断。</li>
+<li><strong>数据传输</strong>：实现数据的读写操作。</li>
+</ul>
+<h2 id="4-开发工具和环境"><a href="#4-开发工具和环境" class="headerlink" title="4. 开发工具和环境"></a>4. 开发工具和环境</h2><p><strong>集成开发环境（IDE）</strong></p>
+<p>IDE是嵌入式开发的重要工具，提供代码编辑、编译、调试等功能。常见的IDE有：</p>
+<ul>
+<li><strong>Keil uVision</strong>：广泛用于ARM微控制器开发。</li>
+<li><strong>IAR Embedded Workbench</strong>：支持多种微控制器平台。</li>
+<li><strong>Eclipse</strong>：开源IDE，通过插件支持嵌入式开发。</li>
+</ul>
+<p><strong>编译器</strong></p>
+<p>编译器将高级语言代码转换为机器码，常见的嵌入式编译器有：</p>
+<ul>
+<li><strong>GCC</strong>：GNU编译器套件，支持多种架构。</li>
+<li><strong>ARM Compiler</strong>：ARM公司提供的编译器，优化ARM微控制器代码。</li>
+</ul>
+<p><strong>仿真器</strong></p>
+<p>仿真器用于在开发过程中模拟嵌入式系统的硬件行为，常见的仿真器有：</p>
+<ul>
+<li><strong>Proteus</strong>：可以模拟各种微控制器和外设。</li>
+<li><strong>QEMU</strong>：开源仿真器，支持多种架构。</li>
+</ul>
+<p><strong>硬件调试工具</strong></p>
+<p>硬件调试工具用于在实际硬件上进行调试，常见的工具有：</p>
+<ul>
+<li><strong>JTAG</strong>：标准调试接口，用于下载程序和调试。</li>
+<li><strong>SWD</strong>：串行线调试接口，功能类似JTAG但使用更少的引脚。</li>
+</ul>
+<h2 id="5-嵌入式系统编程"><a href="#5-嵌入式系统编程" class="headerlink" title="5. 嵌入式系统编程"></a>5. 嵌入式系统编程</h2><p><strong>编程语言</strong></p>
+<p>嵌入式系统编程常用的语言包括C、C++和汇编语言。</p>
+<ul>
+<li><strong>C语言</strong>：最常用的嵌入式编程语言，具有高效和低级控制能力。</li>
+<li>**C++**：在C的基础上增加了面向对象特性，适用于复杂项目。</li>
+<li><strong>汇编语言</strong>：用于编写性能关键或硬件相关的代码。</li>
+</ul>
+<p><strong>编程范式</strong></p>
+<p>嵌入式系统编程需要考虑资源受限和实时性等特点，常用的编程范式有：</p>
+<ul>
+<li><strong>中断驱动</strong>：通过中断实现事件驱动，适用于响应速度要求高的应用。</li>
+<li><strong>循环扫描</strong>：通过循环扫描各个任务的状态，适用于简单应用。</li>
+</ul>
+<p><strong>示例代码：GPIO控制</strong></p>
+<p>以下示例代码展示了如何在C语言中控制GPIO引脚。</p>
+<div class="code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;stm32f4xx.h&quot;</span></span>
+
+<span class="hljs-type">void</span> <span class="hljs-title function_">GPIO_Init</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;
+    <span class="hljs-comment">// 启用GPIO时钟</span>
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+    
+    <span class="hljs-comment">// 配置GPIO引脚为输出模式</span>
+    GPIO_InitTypeDef GPIO_InitStructure;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+&#125;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;
+    GPIO_Init();
+    
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) &#123;
+        <span class="hljs-comment">// 切换GPIO引脚状态</span>
+        GPIO_ToggleBits(GPIOA, GPIO_Pin_5);
+        
+        <span class="hljs-comment">// 延时</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++);
+    &#125;
+&#125;</code></pre></div>
+
+<h2 id="6-嵌入式系统调试"><a href="#6-嵌入式系统调试" class="headerlink" title="6. 嵌入式系统调试"></a>6. 嵌入式系统调试</h2><p><strong>硬件调试</strong></p>
+<p>硬件调试主要通过调试工具进行，包括JTAG、SWD等。调试工具可以实现以下功能：</p>
+<ul>
+<li><strong>下载程序</strong>：将编译好的程序下载到微控制器中。</li>
+<li><strong>设置断点</strong>：在程序中设置断点，便于逐步执行。</li>
+<li><strong>监视变量</strong>：实时监视变量的值，帮助分析问题。</li>
+</ul>
+<p><strong>软件调试</strong></p>
+<p>软件调试主要通过IDE和仿真器进行，包括以下步骤：</p>
+<ul>
+<li><strong>单步执行</strong>：逐步执行代码，观察每一步的运行情况。</li>
+<li><strong>查看寄存器</strong>：查看微控制器内部寄存器的值，分析硬件状态。</li>
+<li><strong>日志输出</strong>：通过串口或其他通信接口输出日志，帮助定位问题。</li>
+</ul>
+<p><strong>常见调试技巧</strong></p>
+<ul>
+<li><strong>分而治之</strong>：将复杂问题分解为小问题，逐步解决。</li>
+<li><strong>回溯法</strong>：从问题发生的地方逐步回溯，找到问题根源。</li>
+<li><strong>假设验证</strong>：提出假设并通过实验验证，排除错误原因。</li>
+</ul>
+<h2 id="7-嵌入式系统优化"><a href="#7-嵌入式系统优化" class="headerlink" title="7. 嵌入式系统优化"></a>7. 嵌入式系统优化</h2><p><strong>性能优化</strong></p>
+<p>性能优化旨在提高嵌入式系统的运行效率，常用的方法有：</p>
+<ul>
+<li><strong>代码优化</strong>：使用高效的算法和数据结构，减少不必要的计算。</li>
+<li><strong>硬件加速</strong>：使用硬件外设代替软件计算，如DMA、硬件乘法器等。</li>
+<li><strong>并行处理</strong>：利用多核处理器或多任务调度，实现并行处理。</li>
+</ul>
+<p><strong>能耗优化</strong></p>
+<p>能耗优化旨在延长嵌入式系统的电池寿命，常用的方法有：</p>
+<ul>
+<li><strong>睡眠模式</strong>：在不需要运行时进入低功耗模式。</li>
+<li><strong>动态电压和频率调节（DVFS）</strong>：根据负载调整处理器的电压和频率。</li>
+<li><strong>外设管理</strong>：在不需要使用时关闭不必要的外设。</li>
+</ul>
+<p><strong>存储优化</strong></p>
+<p>存储优化旨在高效利用嵌入式系统的存储资源，常用的方法有：</p>
+<ul>
+<li><strong>代码压缩</strong>：使用压缩算法减少代码占用的存储空间。</li>
+<li><strong>数据压缩</strong>：使用压缩算法减少数据占用的存储空间。</li>
+<li><strong>内存管理</strong>：高效管理内存使用，避免内存泄漏和碎片化。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="print-no-link">#嵌入式</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>慕k体系-物联网/嵌入式工程师</div>
+      <div>http://example.com/2024/06/25/慕k体系-物联网-嵌入式工程师/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tan ChuYang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/06/25/PMP%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%AE%A4%E8%AF%81-%E4%B8%80%E7%AB%99%E5%BC%8F%E9%80%9A%E5%85%B3%E8%AF%BE%E7%A8%8B-1/" title="PMP项目管理认证 一站式通关课程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PMP项目管理认证 一站式通关课程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/25/%E6%85%95ke%E5%95%86%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/" title="慕ke商业数据分析师">
+                        <span class="hidden-mobile">慕ke商业数据分析师</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
